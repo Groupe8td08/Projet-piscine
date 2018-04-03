@@ -1,0 +1,17 @@
+6
+0 (herbe)
+1 (cricket)
+2 (lezard)
+3 (souris)
+4 (lapin)
+5 (serpent)
+6 (aigle)
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+0 1 0 0 0 0 0
+1 0 0 0 0 0 0
+1 0 0 0 0 0 0
+0 0 0 1 0 0 0
+0 1 1 1 1 1 1
+(positions x y)
+200 555
