@@ -262,6 +262,18 @@ class GraphInterface
         /// Dans cette boite seront ajoutés des boutons de contrôle etc...
         grman::WidgetBox m_tool_box;
 
+        grman::WidgetBox m_quitter;
+        grman::WidgetBox m_sauver;
+        grman::WidgetBox m_connexe;
+        grman::WidgetBox m_k_connexe;
+        grman::WidgetBox m_k_sommet_connexe;
+
+        grman::WidgetText m_quitter_label;
+        grman::WidgetText m_sauver_label;
+        grman::WidgetText m_connexe_label;
+        grman::WidgetText m_k_connexe_label;
+        grman::WidgetText m_k_sommet_connexe_label;
+
 
         // A compléter éventuellement par des widgets de décoration ou
         // d'édition (boutons ajouter/enlever ...)

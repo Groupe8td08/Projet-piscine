@@ -154,6 +154,54 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
+
+    //ajouter bouton quitter
+    m_tool_box.add_child(m_quitter);
+    m_quitter.set_dim(73,25);
+    m_quitter.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
+    m_quitter.set_bg_color(GRIS);
+    //texte
+    m_quitter.add_child(m_quitter_label);
+    m_quitter_label.set_message("Quitter");
+
+    //ajouter bouton connexe
+    m_tool_box.add_child(m_sauver);
+    m_sauver.set_dim(73,25);
+    m_sauver.set_pos(1,33);
+    m_sauver.set_bg_color(GRIS);
+    //texte
+    m_sauver.add_child(m_sauver_label);
+    m_sauver_label.set_message("Sauver");
+
+    //ajouter bouton connexe
+    m_tool_box.add_child(m_connexe);
+    m_connexe.set_dim(73,25);
+    m_connexe.set_pos(1,66);
+    m_connexe.set_bg_color(GRIS);
+    //texte
+    m_connexe.add_child(m_connexe_label);
+    m_connexe_label.set_message("Connexe");
+
+    //ajouter bouton k connexe
+    m_tool_box.add_child(m_k_connexe);
+    m_k_connexe.set_dim(73,25);
+    m_k_connexe.set_pos(1,99);
+    m_k_connexe.set_bg_color(GRIS);
+    //texte
+    m_k_connexe.add_child(m_k_connexe_label);
+    m_k_connexe_label.set_message("K-connexe");
+
+    //ajouter bouton k sommet connexe
+    m_tool_box.add_child(m_k_sommet_connexe);
+    m_k_sommet_connexe.set_dim(73,25);
+    m_k_sommet_connexe.set_pos(1,132);
+    m_k_sommet_connexe.set_bg_color(GRIS);
+
+    m_k_sommet_connexe.add_child(m_k_sommet_connexe_label);
+    m_k_sommet_connexe_label.set_message("K-som-con");
+
+
+
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
