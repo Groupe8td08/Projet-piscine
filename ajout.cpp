@@ -43,25 +43,82 @@ int afficher_menu()
     return choi;
 }
 
-void reseau_1()
+void reseau_1(Graph g1)
 {
+    /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+    g1.update();
+
+    /// Mise à jour générale (clavier/souris/buffer etc...)
+    grman::mettre_a_jour();
+    if(mouse_y>37 && mouse_y<70 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        g1.save("graphe1.txt");
+        std::cout<<"sauver"<<std::endl;
+    }
+    if(mouse_y>72 && mouse_y<104 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"connexe"<<std::endl;
+    }
+    if(mouse_y>106 && mouse_y<138 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"k_connexe"<<std::endl;
+    }
+    if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"k_sommet_connexe"<<std::endl;
+    }
+
 
 }
 
-void reseau_2()
+void reseau_2(Graph g1)
 {
-    clear_bitmap(grman::page);
-    textprintf_ex(grman::page,font,370,125,makecol(0,255,0),-1,"RESEAU 2");
-    rectfill(grman::page,3,3,60,25,makecol(255,255,255));
-    textprintf_ex(grman::page,font,5,10,makecol(0,0,0),-1,"quitter");
-    blit(grman::page, screen, 0,0,0,0,1024,768);
+    /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+    g1.update();
+
+    /// Mise à jour générale (clavier/souris/buffer etc...)
+    grman::mettre_a_jour();
+    if(mouse_y>37 && mouse_y<70 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        g1.save("graphe2.txt");
+        std::cout<<"sauver"<<std::endl;
+    }
+    if(mouse_y>72 && mouse_y<104 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"connexe"<<std::endl;
+    }
+    if(mouse_y>106 && mouse_y<138 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"k_connexe"<<std::endl;
+    }
+    if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"k_sommet_connexe"<<std::endl;
+    }
 }
 
-void reseau_3()
+void reseau_3(Graph g1)
 {
-    clear_bitmap(grman::page);
-    textprintf_ex(grman::page,font,370,125,makecol(0,0,255),-1,"RESEAU 3");
-    rectfill(grman::page,3,3,60,25,makecol(255,255,255));
-    textprintf_ex(grman::page,font,5,10,makecol(0,0,0),-1,"quitter");
-    blit(grman::page, screen, 0,0,0,0,1024,768);
+    /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+    g1.update();
+
+    /// Mise à jour générale (clavier/souris/buffer etc...)
+    grman::mettre_a_jour();
+    if(mouse_y>37 && mouse_y<70 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        g1.save("graphe3.txt");
+        std::cout<<"sauver"<<std::endl;
+    }
+    if(mouse_y>72 && mouse_y<104 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"connexe"<<std::endl;
+    }
+    if(mouse_y>106 && mouse_y<138 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"k_connexe"<<std::endl;
+    }
+    if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"k_sommet_connexe"<<std::endl;
+    }
 }

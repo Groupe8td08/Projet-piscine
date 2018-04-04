@@ -8,11 +8,11 @@
 
 int afficher_menu();
 
-void reseau_1();
+void reseau_1(Graph g1);
 
-void reseau_2();
+void reseau_2(Graph g1);
 
-void reseau_3();
+void reseau_3(Graph g1);
 
 
 #endif // AJOUT_H_INCLUDED
