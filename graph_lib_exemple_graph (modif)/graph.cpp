@@ -155,7 +155,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
 
-    //ajouter bouton quitter
+     //ajouter bouton quitter
     m_tool_box.add_child(m_quitter);
     m_quitter.set_dim(73,25);
     m_quitter.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
@@ -199,9 +199,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     m_k_sommet_connexe.add_child(m_k_sommet_connexe_label);
     m_k_sommet_connexe_label.set_message("K-som-con");
-
-
-
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
@@ -224,7 +221,8 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
-    cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
+    //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
+
 
 }
 
@@ -264,7 +262,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
-    //init front et nd avec vert1 et 2
+    //init from et to avec vert1 et 2
 
     m_edges[idx].m_from=id_vert1;
     m_edges[idx].m_to=id_vert2;
@@ -275,35 +273,12 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
 /// de chargement de fichiers par exemple.
 /// Bien sûr on ne veut pas que vos graphes soient construits
 /// "à la main" dans le code comme ça.
-void Graph::make_example()
+void Graph::make_example(std::string fichier)
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
-
-    /// Les sommets doivent être définis avant les arcs
-    // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-    add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
-    add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
-    add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
-    add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
-    add_interfaced_vertex(4,  100.0, 600, 300, "clown5.jpg");
-    add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
-    add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
-    add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);
-
-    /// Les arcs doivent être définis entre des sommets qui existent !
-    // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
-    add_interfaced_edge(0, 1, 2, 50.0);
-    add_interfaced_edge(1, 0, 1, 50.0);
-    add_interfaced_edge(2, 1, 3, 75.0);
-    add_interfaced_edge(3, 4, 1, 25.0);
-    add_interfaced_edge(4, 6, 3, 25.0);
-    add_interfaced_edge(5, 7, 3, 25.0);
-    add_interfaced_edge(6, 3, 4, 0.0);
-    add_interfaced_edge(7, 2, 0, 100.0);
-    add_interfaced_edge(8, 5, 2, 20.0);
-    add_interfaced_edge(9, 3, 7, 80.0);
+    load(fichier);
 }
 
 int** Graph::init(int** m_matrice)
@@ -327,7 +302,7 @@ void Graph::load(string nom_fichier)
     ifstream fichier(nom_fichier, ios::in);
     if(fichier)
     {
-        fichier>>m_ordre;
+        fichier>>m_ordre>>m_degre;
         temp1=new int [m_ordre];
         for(int i=0; i<m_ordre; i++)
         {
@@ -337,11 +312,11 @@ void Graph::load(string nom_fichier)
         matrice=init(matrice);
         for(int i=0; i<m_ordre; i++)
         {
-            for(int j=0; j<m_ordre; i++)
+            for(int j=0; j<m_ordre; j++)
             {
+                fichier>>matrice[i][j];
                 if(matrice[i][j]!=0)
                 {
-                    m_degre++;
                     add_interfaced_edge(cpt,temp1[i],temp1[j],matrice[i][j]);
                     cpt++;
                 }
@@ -349,7 +324,6 @@ void Graph::load(string nom_fichier)
         }
         fichier.close();
     }
-    delete temp1;
 }
 
 
@@ -369,11 +343,11 @@ void Graph::save(string nom_fichier)
     ofstream fichier(nom_fichier,ios::out | ios::trunc);
     if(fichier)
     {
-        fichier<<m_ordre;
+        fichier<<m_ordre<<" "<<m_degre<<"\n";
         for(int i=0; i<m_ordre; i++)
         {
             fichier<<i<<" "<<m_vertices[i].m_value<<" "<<m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()
-                   <<m_vertices[i].m_interface->m_img.get_pic_name();
+                   <<" "<<m_vertices[i].m_interface->m_img.get_pic_name();
             fichier<<"\n";
         }
         while(g<m_degre)
@@ -385,12 +359,13 @@ void Graph::save(string nom_fichier)
         {
             for(int j=0; j<m_ordre; j++)
             {
-                fichier<<matrice[i][j];
+                fichier<<matrice[i][j]<<" ";
             }
             fichier<<"\n";
         }
         fichier.close();
     }
+
 }
 
 
