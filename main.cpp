@@ -3,6 +3,8 @@
 int main()
 {
     int choix=0;
+    BITMAP* pagina;
+
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
 
@@ -11,7 +13,7 @@ int main()
 
     /// Un exemple de graphe
 
-
+    pagina=load_bitmap("accueil.bmp",NULL);
     Graph g1;
     Graph g2;
     Graph g3;
@@ -24,7 +26,7 @@ int main()
     while ( !key[KEY_ESC])
     {
         if(choix==0)
-            choix=afficher_menu();
+            choix=afficher_menu(pagina);
 
         if(choix==1)
         {

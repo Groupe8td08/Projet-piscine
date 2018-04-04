@@ -1,12 +1,13 @@
 #include "ajout.h"
 
-int afficher_menu()
+int afficher_menu(BITMAP* page)
 {
     int choi=0;
     if(!choi)
     {
         clear_bitmap(grman::page);
-        grman::page=load_bitmap("accueil.bmp",NULL);
+        //grman::page=load_bitmap("accueil.bmp",NULL);
+        blit(page, grman::page, 0, 0, 0, 0, 1024, 768);
         rect(grman::page,300,120,700,180,makecol(0,0,0));
         rect(grman::page,300,220,700,280,makecol(0,0,0));
         rect(grman::page,300,320,700,380,makecol(0,0,0));
@@ -67,6 +68,10 @@ void reseau_1(Graph g1)
     {
         std::cout<<"k_sommet_connexe"<<std::endl;
     }
+    if(mouse_y>695 && mouse_y<723 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"Temps reel"<<std::endl;
+    }
 
 
 }
@@ -95,6 +100,11 @@ void reseau_2(Graph g1)
     {
         std::cout<<"k_sommet_connexe"<<std::endl;
     }
+    if(mouse_y>695 && mouse_y<723 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"Temps reel"<<std::endl;
+    }
+
 }
 
 void reseau_3(Graph g1)
@@ -120,5 +130,9 @@ void reseau_3(Graph g1)
     if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
     {
         std::cout<<"k_sommet_connexe"<<std::endl;
+    }
+    if(mouse_y>695 && mouse_y<723 && mouse_x<103 && mouse_x>25 && mouse_b&1)
+    {
+        std::cout<<"Temps reel"<<std::endl;
     }
 }

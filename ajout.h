@@ -6,7 +6,7 @@
 
 #include "graph.h"
 
-int afficher_menu();
+int afficher_menu(BITMAP* page);
 
 void reseau_1(Graph g1);
 
