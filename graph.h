@@ -142,8 +142,17 @@ class Vertex
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         double m_value;
 
+        ///marque d'un edge
+//        bool m_marque_pos = false;
+//        bool m_marque_neg =false;
+        int m_marque=0;
+        int m_sommet=0;
+
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
+
+//        ///Vecteur mémoire de sommet
+//        std::vector<Vertex*> m_memo;
 
         // Docu shared_ptr : https://msdn.microsoft.com/fr-fr/library/hh279669.aspx
         // La ligne précédente est en gros équivalent à la ligne suivante :
@@ -218,6 +227,10 @@ class Edge
 
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         double m_weight;
+
+        ///marque d'un edge
+        bool m_marque_pos = false;
+        bool m_marque_neg =false;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<EdgeInterface> m_interface = nullptr;
@@ -332,6 +345,8 @@ class Graph
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
         int updatex(int fonction);
+
+        void connexe();
 };
 
 

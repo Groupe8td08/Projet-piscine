@@ -219,13 +219,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_connexe.clicked())
     {
 
-        if(fonction!=1)
+        if(fonction==0)
         {
             fonction=1;
             std::cout<<"connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==1)
         {
             fonction=0;
             std::cout<<"Q_connexe"<<std::endl;
@@ -236,13 +236,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_k_connexe.clicked())
     {
 
-        if(fonction!=2)
+        if(fonction==0)
         {
             fonction=2;
             std::cout<<"k_connexe"<<std::endl;
             m_interface->m_k_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==2)
         {
              fonction=0;
              std::cout<<"Q_k_connexe"<<std::endl;
@@ -253,13 +253,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_k_sommet_connexe.clicked())
     {
 
-        if(fonction!=3)
+        if(fonction==0)
         {
             fonction=3;
             std::cout<<"k_sommet_connexe"<<std::endl;
             m_interface->m_k_sommet_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==3)
         {
             fonction=0;
             std::cout<<"Q_k_sommet_connexe"<<std::endl;
@@ -269,13 +269,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_temps_reel.clicked())
     {
 
-        if(fonction!=4)
+        if(fonction==0)
         {
             fonction=4;
             std::cout<<"temps reel"<<std::endl;
             m_interface->m_temps_reel.set_bg_color(ROUGE);
         }
-        else
+        else if(fonction==4)
         {
             fonction=0;
             std::cout<<"Q_temps reel"<<std::endl;
@@ -449,6 +449,61 @@ void Graph::save(string nom_fichier)
         fichier.close();
     }
 
+}
+void Graph::connexe() ///Bool sous forme de int
+{
+    int** matrice;
+    std::vector<Vertex>m_memo;///avec les vertex
+    std::vector<int>m_memo2;///avec int
+    std::cout<<"connexite du graphe:"<<std::endl;
+    for(int i=0;i<m_ordre;i++) ///all sommets (m-ordre ou m_vertices.size()
+    {       //std::cout<<"ii"<<std::endl;
+
+            m_memo.push_back(m_vertices[i]);///vertex
+            m_memo2.push_back(i);///int
+
+            matrice=init(matrice);
+
+//             std::cout<<"push_back et matrice init"<<std::endl;
+
+         if(m_vertices[i].m_marque == 0)
+        {
+//            std::cout<<"vertices i"<<std::endl;
+                for(int j=0;j<m_ordre;j++)
+                {
+                    for(int k=0;k<m_ordre;k++)
+                    {
+                        if(matrice[j][k]!=0)
+                        {
+//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"link"<<std::endl;///vertex
+                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<"link"<<std::endl;
+
+                            m_vertices[k].m_marque = 1;
+
+                            m_memo.push_back(m_vertices[k]);///vertex
+                            m_memo2.push_back(k);
+                        }
+                        else{
+//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"pas de link"<<std::endl;///vertex
+                            std::cout<<i<<" et "<<k<<"link"<<std::endl;
+
+                            m_vertices[k].m_marque = 0;
+
+                            }
+//                        if(m_memo[k].m_marque==m_memo[k+1].m_marque)///vertex
+                        if(m_memo2[i]==m_memo2[k])///int
+                        {
+//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"connexe"<<std::endl;///vertex
+
+                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" connexe"<<std::endl;///int
+
+                        }
+                    }
+                }
+
+        }
+
+    } std::cout<<std::endl;
 }
 
 
