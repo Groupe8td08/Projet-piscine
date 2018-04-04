@@ -315,7 +315,7 @@ class Graph
         /// Voir implémentation dans le .cpp
         /// Cette méthode est à enlever et remplacer par un système
         /// de chargement de fichiers par exemple.
-        void make_example();
+        void make_example(std::string nom);
 
         void load(std::string nom_fichier);
         int** init(int** m_matrice);
