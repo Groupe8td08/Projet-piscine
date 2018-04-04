@@ -7,33 +7,33 @@ int afficher_menu()
     {
         clear_bitmap(grman::page);
         grman::page=load_bitmap("accueil.bmp",NULL);
-        rect(grman::page,200,100,600,160,makecol(0,0,0));
-        rect(grman::page,200,200,600,260,makecol(0,0,0));
-        rect(grman::page,200,300,600,360,makecol(0,0,0));
-        rect(grman::page,250,450,550,510,makecol(0,0,0));
-        textprintf_ex(grman::page,font,370,125,makecol(255,255,255),-1,"RESEAU 1");
-        textprintf_ex(grman::page,font,370,225,makecol(255,255,255),-1,"RESEAU 2");
-        textprintf_ex(grman::page,font,370,325,makecol(150,150,150),-1,"RESEAU 3");
-        textprintf_ex(grman::page,font,370,475,makecol(0,0,0),-1,"QUITTER");
+        rect(grman::page,300,120,700,180,makecol(0,0,0));
+        rect(grman::page,300,220,700,280,makecol(0,0,0));
+        rect(grman::page,300,320,700,380,makecol(0,0,0));
+        rect(grman::page,350,470,650,530,makecol(0,0,0));
+        textprintf_ex(grman::page,font,470,145,makecol(0,0,0),-1,"RESEAU 1");
+        textprintf_ex(grman::page,font,470,245,makecol(0,0,0),-1,"RESEAU 2");
+        textprintf_ex(grman::page,font,470,345,makecol(0,0,0),-1,"RESEAU 3");
+        textprintf_ex(grman::page,font,470,495,makecol(0,0,0),-1,"QUITTER");
         blit(grman::page, screen, 0,0,0,0,1024,768);
-        if(mouse_x>200 && mouse_x<600)
+        if(mouse_x>300 && mouse_x<700)
         {
-            if(mouse_y>100 && mouse_y<160 && mouse_b&1)
+            if(mouse_y>120 && mouse_y<180 && mouse_b&1)
             {
                 //reseau 1
                 choi=1;
             }
-            if(mouse_y>200 && mouse_y<260 && mouse_b&1)
+            if(mouse_y>220 && mouse_y<280 && mouse_b&1)
             {
                 //reseau 2
                 choi=2;
             }
-            if(mouse_y>300 && mouse_y<360 && mouse_b&1)
+            if(mouse_y>320 && mouse_y<380 && mouse_b&1)
             {
                 //reseau 3
                 choi=3;
             }
-            if(mouse_y>450 && mouse_y<510 && mouse_b&1)
+            if(mouse_y>470 && mouse_y<530 && mouse_b&1)
             {
                 choi=4;
             }
@@ -62,6 +62,6 @@ void reseau_3()
     clear_bitmap(grman::page);
     textprintf_ex(grman::page,font,370,125,makecol(0,0,255),-1,"RESEAU 3");
     rectfill(grman::page,3,3,60,25,makecol(255,255,255));
-    textprintf_ex(grman::page,font,5,5,makecol(0,0,0),-1,"quitter");
+    textprintf_ex(grman::page,font,5,10,makecol(0,0,0),-1,"quitter");
     blit(grman::page, screen, 0,0,0,0,1024,768);
 }
