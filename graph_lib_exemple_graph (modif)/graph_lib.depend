@@ -1,0 +1,174 @@
+# depslib dependency file v1.0
+1522656553 source:c:\users\antoine\downloads\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522656089 c:\users\antoine\downloads\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522539041 c:\users\antoine\downloads\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\antoine\downloads\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\antoine\downloads\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\antoine\downloads\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\antoine\downloads\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\antoine\downloads\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\antoine\downloads\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522657075 source:c:\users\antoine\downloads\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522782298 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522779608 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	"grman/grman.h"
+
+1522539041 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522766973 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522575069 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\coords.cpp
+	"coords.h"
+
+1522575424 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\coords.h
+	<cmath>
+
+1522515823 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522539041 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\grman_couleurs.h
+
+1522837074 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522636919 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\grman\widget.cpp
+	"widget.h"
+
+1522842139 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\main.cpp
+	"ajout.h"
+
+1522839322 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	"grman/grman.h"
+
+1522841333 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\graph.cpp
+	"graph.h"
+
+1522841980 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\ajout.h
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522843317 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)\ajout.cpp
+	"ajout.h"
+
