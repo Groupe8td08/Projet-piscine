@@ -219,13 +219,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_connexe.clicked())
     {
 
-        if(fonction!=1)
+        if(fonction==0)
         {
             fonction=1;
             std::cout<<"connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==1)
         {
             fonction=0;
             std::cout<<"Q_connexe"<<std::endl;
@@ -236,13 +236,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_k_connexe.clicked())
     {
 
-        if(fonction!=2)
+        if(fonction==0)
         {
             fonction=2;
             std::cout<<"k_connexe"<<std::endl;
             m_interface->m_k_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==2)
         {
              fonction=0;
              std::cout<<"Q_k_connexe"<<std::endl;
@@ -252,14 +252,13 @@ int Graph::updatex(int fonction)
     }
     if(m_interface->m_k_sommet_connexe.clicked())
     {
-
-        if(fonction!=3)
+        if(fonction==0)
         {
             fonction=3;
             std::cout<<"k_sommet_connexe"<<std::endl;
             m_interface->m_k_sommet_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==3)
         {
             fonction=0;
             std::cout<<"Q_k_sommet_connexe"<<std::endl;
@@ -269,13 +268,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_temps_reel.clicked())
     {
 
-        if(fonction!=4)
+        if(fonction==0)
         {
             fonction=4;
             std::cout<<"temps reel"<<std::endl;
             m_interface->m_temps_reel.set_bg_color(ROUGE);
         }
-        else
+        else if(fonction==4)
         {
             fonction=0;
             std::cout<<"Q_temps reel"<<std::endl;
