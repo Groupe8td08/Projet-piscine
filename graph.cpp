@@ -212,25 +212,9 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-int Graph::update(int fonction)
+int Graph::updatex(int fonction)
 {
-    if (!m_interface)
-        //return;
-
-    for (auto &elt : m_vertices)
-        elt.second.pre_update();
-
-    for (auto &elt : m_edges)
-        elt.second.pre_update();
-
-    m_interface->m_top_box.update();
-
-    for (auto &elt : m_vertices)
-        elt.second.post_update();
-
-    for (auto &elt : m_edges)
-        elt.second.post_update();
-
+    update();
     //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
     if(m_interface->m_connexe.clicked())
     {
@@ -300,6 +284,25 @@ int Graph::update(int fonction)
     }
     return fonction;
 
+}
+void Graph::update()
+{
+    if (!m_interface)
+        return;
+
+    for (auto &elt : m_vertices)
+        elt.second.pre_update();
+
+    for (auto &elt : m_edges)
+        elt.second.pre_update();
+
+    m_interface->m_top_box.update();
+
+    for (auto &elt : m_vertices)
+        elt.second.post_update();
+
+    for (auto &elt : m_edges)
+        elt.second.post_update();
 }
 
 /// Aide à l'ajout de sommets interfacés

@@ -330,7 +330,8 @@ class Graph
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-        int update(int fonction);
+        void update();
+        int updatex(int fonction);
 };
 
 

@@ -32,7 +32,7 @@ int main()
         if(choix==1)
         {
             /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-            fonction=g1.update(fonction);
+            fonction=g1.updatex(fonction);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
             grman::mettre_a_jour();
@@ -41,7 +41,7 @@ int main()
         if(choix==2)
         {
             /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-            fonction=g2.update(fonction);
+            fonction=g2.updatex(fonction);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
             grman::mettre_a_jour();
@@ -50,7 +50,7 @@ int main()
         if(choix==3)
         {
             /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-            fonction=g3.update(fonction);
+            fonction=g3.updatex(fonction);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
             grman::mettre_a_jour();
