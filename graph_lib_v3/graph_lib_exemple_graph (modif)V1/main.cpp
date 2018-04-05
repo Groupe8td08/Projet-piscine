@@ -4,6 +4,8 @@ int main()
 {
     int choix=0;
     int fonction=0;
+    int a=0,b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;
+
     BITMAP* pagina;
 
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
@@ -32,7 +34,7 @@ int main()
         if(choix==1)
         {
             /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-            fonction=g1.updatex(fonction);
+            fonction=g1.updatex(fonction,&a,&b,&c,&d,&e,&f,&g,&h,&i,&j,&k,&l,choix);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
             //grman::mettre_a_jour();
@@ -41,7 +43,7 @@ int main()
         if(choix==2)
         {
             /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-            fonction=g2.updatex(fonction);
+            fonction=g2.updatex(fonction,&a,&b,&c,&d,&e,&f,&g,&h,&i,&j,&k,&l,choix);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
             //grman::mettre_a_jour();
@@ -50,7 +52,7 @@ int main()
         if(choix==3)
         {
             /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-            fonction=g3.updatex(fonction);
+            fonction=g3.updatex(fonction,&a,&b,&c,&d,&e,&f,&g,&h,&i,&j,&k,&l,choix);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
             //grman::mettre_a_jour();

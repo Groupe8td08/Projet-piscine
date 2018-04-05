@@ -73,6 +73,7 @@ void Vertex::post_update()
 }
 
 
+
 /***************************************************
                     EDGE
 ****************************************************/
@@ -154,7 +155,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
 
-     //ajouter bouton quitter
+    //ajouter bouton quitter
     m_tool_box.add_child(m_quitter);
     m_quitter.set_dim(73,25);
     m_quitter.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
@@ -210,8 +211,118 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_temps_reel_label.set_message("Evolution");
 }
 
+void GraphInterface::sommet_box1()
+{
+    m_tool_box.add_child(m_sommet0);
+    m_sommet0.set_dim(73,25);
+    m_sommet0.set_pos(1,166);
+    m_sommet0.set_bg_color(GRIS);
+
+    m_sommet0.add_child(m_sommet_label0);
+    m_sommet_label0.set_message("Sommet 0");
+///----------------------------------------------
+    m_tool_box.add_child(m_sommet1);
+    m_sommet1.set_dim(73,25);
+    m_sommet1.set_pos(1,196);
+    m_sommet1.set_bg_color(GRIS);
+
+    m_sommet1.add_child(m_sommet_label1);
+    m_sommet_label1.set_message("Sommet 1");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet2);
+    m_sommet2.set_dim(73,25);
+    m_sommet2.set_pos(1,226);
+    m_sommet2.set_bg_color(GRIS);
+
+    m_sommet2.add_child(m_sommet_label2);
+    m_sommet_label2.set_message("Sommet 2");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet3);
+    m_sommet3.set_dim(73,25);
+    m_sommet3.set_pos(1,256);
+    m_sommet3.set_bg_color(GRIS);
+
+    m_sommet3.add_child(m_sommet_label3);
+    m_sommet_label3.set_message("Sommet 3");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet4);
+    m_sommet4.set_dim(73,25);
+    m_sommet4.set_pos(1,286);
+    m_sommet4.set_bg_color(GRIS);
+
+    m_sommet4.add_child(m_sommet_label4);
+    m_sommet_label4.set_message("Sommet 4");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet5);
+    m_sommet5.set_dim(73,25);
+    m_sommet5.set_pos(1,316);
+    m_sommet5.set_bg_color(GRIS);
+
+    m_sommet5.add_child(m_sommet_label5);
+    m_sommet_label5.set_message("Sommet 5");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet6);
+    m_sommet6.set_dim(73,25);
+    m_sommet6.set_pos(1,346);
+    m_sommet6.set_bg_color(GRIS);
+
+    m_sommet6.add_child(m_sommet_label6);
+    m_sommet_label6.set_message("Sommet 6");
+
+}
+
+void GraphInterface::sommet_box2()
+{
+    ///-------------------------------------------------
+    m_tool_box.add_child(m_sommet7);
+    m_sommet7.set_dim(73,25);
+    m_sommet7.set_pos(1,376);
+    m_sommet7.set_bg_color(GRIS);
+
+    m_sommet7.add_child(m_sommet_label7);
+    m_sommet_label7.set_message("Sommet 7");
+
+    ///-------------------------------------------------
+    m_tool_box.add_child(m_sommet8);
+    m_sommet8.set_dim(73,25);
+    m_sommet8.set_pos(1,406);
+    m_sommet8.set_bg_color(GRIS);
+
+    m_sommet8.add_child(m_sommet_label8);
+    m_sommet_label8.set_message("Sommet 8");
+}
+
+void GraphInterface::sommet_box3()
+{
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet9);
+    m_sommet9.set_dim(73,25);
+    m_sommet9.set_pos(1,436);
+    m_sommet9.set_bg_color(GRIS);
+
+    m_sommet9.add_child(m_sommet_label9);
+    m_sommet_label9.set_message("Sommet 9");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet10);
+    m_sommet10.set_dim(73,25);
+    m_sommet10.set_pos(1,466);
+    m_sommet10.set_bg_color(GRIS);
+
+    m_sommet10.add_child(m_sommet_label10);
+    m_sommet_label10.set_message("Sommet 10");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet11);
+    m_sommet11.set_dim(73,25);
+    m_sommet11.set_pos(1,496);
+    m_sommet11.set_bg_color(GRIS);
+
+    m_sommet11.add_child(m_sommet_label11);
+    m_sommet_label11.set_message("Sommet 11");
+}
+
+
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-int Graph::updatex(int fonction)
+int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix)
 {
     update();
     //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
@@ -243,9 +354,9 @@ int Graph::updatex(int fonction)
         }
         else if(fonction==2)
         {
-             fonction=0;
-             std::cout<<"Q_k_connexe"<<std::endl;
-             m_interface->m_k_connexe.set_bg_color(GRIS);
+            fonction=0;
+            std::cout<<"Q_k_connexe"<<std::endl;
+            m_interface->m_k_connexe.set_bg_color(GRIS);
         }
 
     }
@@ -280,10 +391,142 @@ int Graph::updatex(int fonction)
             m_interface->m_temps_reel.set_bg_color(VERT);
         }
     }
+    if(choix>0 && choix<4)
+    {
+        if(m_interface->m_sommet0.clicked())
+        {
+            if(*a==0)
+            {
+                m_interface->m_sommet0.set_bg_color(BLANCJAUNE);
+                modi_sommet(0,0);
+                *a=2;
+            }
+            if(*a==1)
+            {
+                m_interface->m_sommet0.set_bg_color(GRIS);
+                modi_sommet(0,1);
+                *a=0;
+            }
+            if(*a==2)
+            {
+                *a=1;
+            }
+
+
+        }
+        if(m_interface->m_sommet1.clicked())
+        {
+            if(*b==0)
+            {
+                m_interface->m_sommet1.set_bg_color(BLANCJAUNE);
+                modi_sommet(1,0);
+                *b=2;
+            }
+            if(*b==1)
+            {
+                m_interface->m_sommet1.set_bg_color(GRIS);
+                modi_sommet(1,1);
+                *b=0;
+            }
+            if(*b==2)
+            {
+                *b=1;
+            }
+        }
+        if(m_interface->m_sommet2.clicked())
+        {
+            if(*c==0)
+            {
+                m_interface->m_sommet2.set_bg_color(BLANCJAUNE);
+                modi_sommet(2,0);
+                *c=2;
+            }
+            if(*c==1)
+            {
+                m_interface->m_sommet2.set_bg_color(GRIS);
+                modi_sommet(2,1);
+                *c=0;
+            }
+            if(*c==2)
+            {
+                *c=1;
+            }
+        }
+        if(m_interface->m_sommet3.clicked())
+        {
+            if(*d==0)
+            {
+                m_interface->m_sommet3.set_bg_color(BLANCJAUNE);
+                modi_sommet(3,0);
+                *d=2;
+            }
+            if(*d==1)
+            {
+                m_interface->m_sommet3.set_bg_color(GRIS);
+                modi_sommet(3,1);
+                *d=0;
+            }
+            if(*d==2)
+            {
+                *d=1;
+            }
+        }
+        if(m_interface->m_sommet4.clicked())
+        {
+            if(*e==0)
+            {
+                m_interface->m_sommet4.set_bg_color(BLANCJAUNE);
+                modi_sommet(4,0);
+                *e=2;
+            }
+            if(*e==1)
+            {
+                m_interface->m_sommet3.set_bg_color(GRIS);
+                modi_sommet(4,1);
+                *e=0;
+            }
+            if(*e==2)
+            {
+                *e=1;
+            }
+        }
+        if(m_interface->m_sommet5.clicked())
+        {
+            m_interface->m_sommet5.set_bg_color(BLANCJAUNE);
+        }
+        if(m_interface->m_sommet6.clicked())
+        {
+            m_interface->m_sommet6.set_bg_color(BLANCJAUNE);
+        }
+    }
+    if(choix>1 && choix<4)
+    {
+        if(m_interface->m_sommet7.clicked())
+        {
+            m_interface->m_sommet7.set_bg_color(BLANCJAUNE);
+        }
+        if(m_interface->m_sommet8.clicked())
+        {
+            m_interface->m_sommet8.set_bg_color(BLANCJAUNE);
+        }
+    }
+    if(choix==3)
+    {
+        if(m_interface->m_sommet9.clicked())
+        {
+
+        }
+        if(m_interface->m_sommet10.clicked())
+        {
+
+        } if(m_interface->m_sommet11.clicked())
+        {
+
+        }
+    }
     return fonction;
 
 }
-
 void Graph::update()
 {
     if (!m_interface)
@@ -325,6 +568,7 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
     m_vertices[idx] = Vertex(value, vi);
 
 
+
 }
 
 /// Aide à l'ajout d'arcs interfacés
@@ -341,6 +585,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         std::cerr << "Error adding edge idx=" << idx << " between vertices " << id_vert1 << " and " << id_vert2 << " not in m_vertices" << std::endl;
         throw "Error adding edge";
     }
+    m_edges[idx].m_idx=idx;
 
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
@@ -349,6 +594,9 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
 
     m_edges[idx].m_from=id_vert1;
     m_edges[idx].m_to=id_vert2;
+
+    m_vertices[id_vert1].m_out.push_back(id_vert2);
+    m_vertices[id_vert2].m_in.push_back(id_vert1);
 }
 
 /// Méthode spéciale qui construit un graphe arbitraire (démo)
@@ -362,6 +610,24 @@ void Graph::make_example(std::string fichier)
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
     load(fichier);
+
+    //Creer boutton
+    if(fichier=="graphe1.txt")
+    {
+        m_interface->sommet_box1();
+    }
+    if(fichier=="graphe2.txt")
+    {
+        m_interface->sommet_box1();
+        m_interface->sommet_box2();
+    }
+    if(fichier=="graphe3.txt")
+    {
+        m_interface->sommet_box1();
+        m_interface->sommet_box2();
+        m_interface->sommet_box3();
+    }
+
 }
 
 int** Graph::init(int** m_matrice)
@@ -371,6 +637,7 @@ int** Graph::init(int** m_matrice)
     {
         m_matrice[i]= new int [m_ordre];
     }
+
 
     return m_matrice;
 }
@@ -454,6 +721,39 @@ void Graph::save(string nom_fichier)
 
 }
 
+void Graph::modi_sommet(int i, int aff)
+{
+    if(aff==0)
+    {
+        for(unsigned int j=0; j<m_vertices[i].m_in.size(); j++)
+        {
+            m_arete[m_vertices[i].m_in[j]]=m_edges.at(m_vertices[i].m_in[j]);
+            m_interface->m_main_box.remove_child(m_edges[m_vertices[i].m_in[j]].m_interface->m_top_edge);
+        }
+
+        for(unsigned int j=0; j<m_vertices[i].m_out.size(); j++)
+        {
+            m_arete[m_vertices[i].m_out[j]]=m_edges.at(m_vertices[i].m_out[j]);
+            m_interface->m_main_box.remove_child(m_edges[m_vertices[i].m_out[j]].m_interface->m_top_edge);
+        }
+        m_sommet[i]=m_vertices.at(i);
+        m_interface->m_main_box.remove_child(m_vertices[i].m_interface->m_top_box);
+
+    }
+
+    if(aff==1)
+    {
+        std::cout<<"aff=1"<<std::endl;
+        add_interfaced_vertex(i, m_sommet[i].m_value,m_sommet[i].m_interface->m_top_box.get_posy(),
+                                                        m_sommet[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
+        add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
+    }
+    else
+    {
+
+    }
+}
+
 void Graph::temps_reel()
 {
     ///K capacité de portage
@@ -497,4 +797,5 @@ void Graph::temps_reel()
         liste.erase(liste.begin(),liste.end());
     }
 }
+
 
