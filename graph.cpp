@@ -666,6 +666,7 @@ void Graph::temps_reel()
 void Graph::connexe()
 { std::cout<<" connexite "<<std::endl;
 
+std::vector<int>m_pile;
     for(auto elem: m_vertices)
     {
 
@@ -673,10 +674,24 @@ void Graph::connexe()
         {
             if(m_edges[arete.first].m_to==elem.first)
                {
-                 std::cout<<" test "<<std::endl;
+                 std::cout<<elem.first<< " Test "<<std::endl;
+                 for(auto eli:m_pile)
+                 {  if(elem.first!=eli)
+                     {m_pile.push_back(elem.first);}
+
+                    else{}
+
+                 }
+
                }
+
 
 
         }
     }
+
+for(auto eli:m_pile)
+{   if(eli!=NULL)
+    std::cout<<eli<<" "<<std::endl;
+}
 }
