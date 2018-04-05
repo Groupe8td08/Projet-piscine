@@ -77,6 +77,7 @@
 #include <memory>
 #include <fstream>
 
+
 #include "grman/grman.h"
 
 /***************************************************
@@ -140,10 +141,14 @@ class Vertex
 
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         double m_value;
+        double m_coef_r=1.3;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
 
+        ///marque
+        int m_marque=0;
+        int m_sommet=0;
         // Docu shared_ptr : https://msdn.microsoft.com/fr-fr/library/hh279669.aspx
         // La ligne précédente est en gros équivalent à la ligne suivante :
         // VertexInterface * m_interface = nullptr;
@@ -264,10 +269,10 @@ class GraphInterface
 
         grman::WidgetBox m_quitter;
         grman::WidgetBox m_sauver;
-        grman::WidgetBox m_connexe;
-        grman::WidgetBox m_k_connexe;
-        grman::WidgetBox m_k_sommet_connexe;
-        grman::WidgetBox m_temps_reel;
+        grman::WidgetButton m_connexe;
+        grman::WidgetButton m_k_connexe;
+        grman::WidgetButton m_k_sommet_connexe;
+        grman::WidgetButton m_temps_reel;
 
         grman::WidgetText m_quitter_label;
         grman::WidgetText m_sauver_label;
@@ -275,6 +280,9 @@ class GraphInterface
         grman::WidgetText m_k_connexe_label;
         grman::WidgetText m_k_sommet_connexe_label;
         grman::WidgetText m_temps_reel_label;
+
+
+
 
 
         // A compléter éventuellement par des widgets de décoration ou
@@ -290,6 +298,7 @@ class GraphInterface
 
 class Graph
 {
+
     private :
         int m_ordre;
         int m_degre;
@@ -327,6 +336,8 @@ class Graph
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
+        int updatex(int fonction);
+        void temps_reel();
 };
 
 

@@ -164,7 +164,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_quitter.add_child(m_quitter_label);
     m_quitter_label.set_message("Quitter");
 
-    //ajouter bouton connexe
+    //ajouter bouton sauver
     m_tool_box.add_child(m_sauver);
     m_sauver.set_dim(73,25);
     m_sauver.set_pos(1,33);
@@ -178,6 +178,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_connexe.set_dim(73,25);
     m_connexe.set_pos(1,66);
     m_connexe.set_bg_color(GRIS);
+
     //texte
     m_connexe.add_child(m_connexe_label);
     m_connexe_label.set_message("Connexe");
@@ -211,6 +212,78 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
+int Graph::updatex(int fonction)
+{
+    update();
+    //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
+    if(m_interface->m_connexe.clicked())
+    {
+
+        if(fonction==0)
+        {
+            fonction=1;
+            std::cout<<"connexe"<<std::endl;
+            m_interface->m_connexe.set_bg_color(BLANCROSE);
+        }
+        else if(fonction==1)
+        {
+            fonction=0;
+            std::cout<<"Q_connexe"<<std::endl;
+            m_interface->m_connexe.set_bg_color(GRIS);
+        }
+
+    }
+    if(m_interface->m_k_connexe.clicked())
+    {
+
+        if(fonction==0)
+        {
+            fonction=2;
+            std::cout<<"k_connexe"<<std::endl;
+            m_interface->m_k_connexe.set_bg_color(BLANCROSE);
+        }
+        else if(fonction==2)
+        {
+             fonction=0;
+             std::cout<<"Q_k_connexe"<<std::endl;
+             m_interface->m_k_connexe.set_bg_color(GRIS);
+        }
+
+    }
+    if(m_interface->m_k_sommet_connexe.clicked())
+    {
+        if(fonction==0)
+        {
+            fonction=3;
+            std::cout<<"k_sommet_connexe"<<std::endl;
+            m_interface->m_k_sommet_connexe.set_bg_color(BLANCROSE);
+        }
+        else if(fonction==3)
+        {
+            fonction=0;
+            std::cout<<"Q_k_sommet_connexe"<<std::endl;
+            m_interface->m_k_sommet_connexe.set_bg_color(GRIS);
+        }
+    }
+    if(m_interface->m_temps_reel.clicked())
+    {
+
+        if(fonction==0)
+        {
+            fonction=4;
+            std::cout<<"temps reel"<<std::endl;
+            m_interface->m_temps_reel.set_bg_color(ROUGE);
+        }
+        else if(fonction==4)
+        {
+            fonction=0;
+            std::cout<<"Q_temps reel"<<std::endl;
+            m_interface->m_temps_reel.set_bg_color(VERT);
+        }
+    }
+    return fonction;
+
+}
 void Graph::update()
 {
     if (!m_interface)
@@ -229,10 +302,6 @@ void Graph::update()
 
     for (auto &elt : m_edges)
         elt.second.post_update();
-
-    //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
-
-
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -275,8 +344,6 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
 
     m_edges[idx].m_from=id_vert1;
     m_edges[idx].m_to=id_vert2;
-
-
 }
 
 /// Méthode spéciale qui construit un graphe arbitraire (démo)
@@ -337,7 +404,6 @@ void Graph::load(string nom_fichier)
     }
 }
 
-
 void Graph::save(string nom_fichier)
 {
     int**matrice=nullptr;
@@ -382,33 +448,96 @@ void Graph::save(string nom_fichier)
     }
 
 }
-void Graph::connexe()
-{
-    int**matrice=nullptr;
-    int i=0;
-    std::cout<<"connexite du graphe:"<<std::endl;
-    while(i<m_ordre)///on traverse la matrice ( voir 2 connexions graphe1)/////voir m_ordre si interférence avec les 3graphes passer en paramètres sinon m_ordre ou nom du graphe
-{
-//    matrice[m_edges[i].m_from][m_edges[i].m_to];
-    std::cout<<"from "<<m_edges[i].m_from<<" to "<<m_edges[i].m_to<<std::endl;///affichage des relation voir graphe 1 et limite avec m_ordre possible
 
+void Graph::temps_reel()
+{
+    ///K capacité de portage
+    double capacit;
+    std::vector<double> liste;
+    double total;
+    double coef;
+    double populas;
+    double R;
 
-    if(m_edges[i].m_from!=NULL && m_edges[i].m_to!=NULL)///si on a from et to diff de rien alors y a une relation "orientée
+    for(auto elem: m_vertices)
     {
-        std::cout<<"relation orientee"<<std::endl;
-        for(int n=0;n<m_ordre;n++)///on verif si un m_to en m_from pointe vers le m-from premier
+        capacit=0;
+        total=0;
+        for(auto arete: m_edges)
         {
-            if(m_edges[i].m_from==m_edges[n].m_to && m_edges[n].m_from==m_edges[i].m_to)///si le from(i) a une egalité avec un quelconque to(n) on regarde si ce to(n) cad from(n) pointe sur le to(i)
-                std::cout<<m_edges[i].m_from<<" et "<<m_edges[i].m_to<<" connexes "<<std::endl;
+            if(m_edges[arete.first].m_to==elem.first && m_vertices[arete.second.m_from].m_value > 0)
+            {
+                coef = 1+(m_edges[arete.first].m_weight)/1000;
+                populas = m_vertices[arete.second.m_from].m_value;
+                capacit+=coef*populas;
+            }
+            else if(m_edges[arete.first].m_from==elem.first && m_vertices[arete.second.m_to].m_value > 0)
+            {
+                coef = 1+(m_edges[arete.first].m_weight)/1000;
+                populas = m_vertices[arete.second.m_to].m_value;
+                liste.push_back(coef*populas);
+            }
+
         }
+        for(auto coef : liste)
+            total += coef/10;
+        R = m_vertices[elem.first].m_coef_r;
+        populas = m_vertices[elem.first].m_value;
+        populas+= R*populas*(1-(populas/capacit))-total;
+        m_vertices[elem.first].m_value = capacit;
 
+        if(m_vertices[elem.first].m_value < 0)
+            m_vertices[elem.first].m_value = 0;
+
+        liste.erase(liste.begin(),liste.end());
     }
-     if(m_edges[i].m_to==m_edges[i].m_from && m_edges[i].m_from==m_edges[i].m_to)
-        {std::cout<<"relation connexe"<<std::endl;}
-    i++;
-
 }
+void Graph::connexe() ///Bool sous forme de int
+{
+    int** matrice;
+    std::vector<Vertex>m_memo;///avec les vertex
+    std::vector<int>m_memo2;///avec int
+    std::cout<<"connexite du graphe:"<<std::endl;
+    for(int i=0;i<m_ordre;i++) ///all sommets (m-ordre ou m_vertices.size()
+    {       //std::cout<<"ii"<<std::endl;
 
-}
+            m_memo.push_back(m_vertices[i]);///vertex
+            m_memo2.push_back(i);///int
+
+            matrice=init(matrice);
+
+//             std::cout<<"push_back et matrice init"<<std::endl;
+
+//            std::cout<<"vertices i"<<std::endl;
+                    for(int k=0;k<m_ordre;k++)
+                    {
+                        if(matrice[i][k]!=0)
+                        {
+//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"link"<<std::endl;///vertex
+                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" link"<<std::endl;
+                            m_vertices[k].m_marque = 1;
+
+                            m_memo.push_back(m_vertices[k]);///vertex
+                            m_memo2.push_back(k);
+                        }
+                        else if(matrice[i][k]==0){
+//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"pas de link"<<std::endl;///vertex
+                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" pas de link"<<std::endl;
+
+                            m_vertices[k].m_marque = 0;
+
+                            }
+//                        if(m_memo[k].m_marque==m_memo[k+1].m_marque)///vertex
+                        if(m_memo2[i]==m_memo2[k])///int
+                        {
+//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"connexe"<<std::endl;///vertex
+
+                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" connexe"<<std::endl;///int
+
+                        }
+                    }
 
 
+        }
+std::cout<<std::endl;
+    }
