@@ -46,93 +46,28 @@ int afficher_menu(BITMAP* page)
 
 void reseau_1(Graph g1)
 {
-    /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-    g1.update();
-
-    /// Mise à jour générale (clavier/souris/buffer etc...)
-    grman::mettre_a_jour();
     if(mouse_y>37 && mouse_y<70 && mouse_x<103 && mouse_x>25 && mouse_b&1)
     {
         g1.save("graphe1.txt");
         std::cout<<"sauver"<<std::endl;
     }
-    if(mouse_y>72 && mouse_y<104 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"connexe"<<std::endl;
-    }
-    if(mouse_y>106 && mouse_y<138 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"k_connexe"<<std::endl;
-    }
-    if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"k_sommet_connexe"<<std::endl;
-    }
-    if(mouse_y>695 && mouse_y<723 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"Temps reel"<<std::endl;
-    }
-
-
 }
 
 void reseau_2(Graph g1)
 {
-    /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-    g1.update();
 
-    /// Mise à jour générale (clavier/souris/buffer etc...)
-    grman::mettre_a_jour();
     if(mouse_y>37 && mouse_y<70 && mouse_x<103 && mouse_x>25 && mouse_b&1)
     {
         g1.save("graphe2.txt");
         std::cout<<"sauver"<<std::endl;
     }
-    if(mouse_y>72 && mouse_y<104 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"connexe"<<std::endl;
-    }
-    if(mouse_y>106 && mouse_y<138 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"k_connexe"<<std::endl;
-    }
-    if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"k_sommet_connexe"<<std::endl;
-    }
-    if(mouse_y>695 && mouse_y<723 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"Temps reel"<<std::endl;
-    }
-
 }
 
 void reseau_3(Graph g1)
 {
-    /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-    g1.update();
-
-    /// Mise à jour générale (clavier/souris/buffer etc...)
-    grman::mettre_a_jour();
     if(mouse_y>37 && mouse_y<70 && mouse_x<103 && mouse_x>25 && mouse_b&1)
     {
         g1.save("graphe3.txt");
         std::cout<<"sauver"<<std::endl;
-    }
-    if(mouse_y>72 && mouse_y<104 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"connexe"<<std::endl;
-    }
-    if(mouse_y>106 && mouse_y<138 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"k_connexe"<<std::endl;
-    }
-    if(mouse_y>140 && mouse_y<172 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"k_sommet_connexe"<<std::endl;
-    }
-    if(mouse_y>695 && mouse_y<723 && mouse_x<103 && mouse_x>25 && mouse_b&1)
-    {
-        std::cout<<"Temps reel"<<std::endl;
     }
 }

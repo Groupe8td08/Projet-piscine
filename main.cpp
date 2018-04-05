@@ -3,6 +3,7 @@
 int main()
 {
     int choix=0;
+    int fonction=0;
     BITMAP* pagina;
 
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
@@ -30,18 +31,45 @@ int main()
 
         if(choix==1)
         {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+            fonction=g1.update(fonction);
+
+            /// Mise à jour générale (clavier/souris/buffer etc...)
+            grman::mettre_a_jour();
             reseau_1(g1);
         }
         if(choix==2)
         {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+            fonction=g2.update(fonction);
+
+            /// Mise à jour générale (clavier/souris/buffer etc...)
+            grman::mettre_a_jour();
             reseau_2(g2);
         }
         if(choix==3)
         {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+            fonction=g3.update(fonction);
+
+            /// Mise à jour générale (clavier/souris/buffer etc...)
+            grman::mettre_a_jour();
             reseau_3(g3);
         }
         if(choix==4)
             break;
+
+        if(fonction==1)
+            std::cout<<"1"<<std::endl;
+
+        if(fonction==2)
+            std::cout<<"2"<<std::endl;
+
+        if(fonction==3)
+            std::cout<<"3"<<std::endl;
+
+        if(fonction==4)
+            std::cout<<"4"<<std::endl;
 
         if(mouse_y<35 && mouse_x<103 && mouse_x>25 && mouse_b&1)
         {

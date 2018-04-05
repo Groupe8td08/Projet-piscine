@@ -77,6 +77,7 @@
 #include <memory>
 #include <fstream>
 
+
 #include "grman/grman.h"
 
 /***************************************************
@@ -264,10 +265,10 @@ class GraphInterface
 
         grman::WidgetBox m_quitter;
         grman::WidgetBox m_sauver;
-        grman::WidgetBox m_connexe;
-        grman::WidgetBox m_k_connexe;
-        grman::WidgetBox m_k_sommet_connexe;
-        grman::WidgetBox m_temps_reel;
+        grman::WidgetButton m_connexe;
+        grman::WidgetButton m_k_connexe;
+        grman::WidgetButton m_k_sommet_connexe;
+        grman::WidgetButton m_temps_reel;
 
         grman::WidgetText m_quitter_label;
         grman::WidgetText m_sauver_label;
@@ -275,6 +276,9 @@ class GraphInterface
         grman::WidgetText m_k_connexe_label;
         grman::WidgetText m_k_sommet_connexe_label;
         grman::WidgetText m_temps_reel_label;
+
+
+
 
 
         // A compléter éventuellement par des widgets de décoration ou
@@ -290,6 +294,7 @@ class GraphInterface
 
 class Graph
 {
+
     private :
         int m_ordre;
         int m_degre;
@@ -325,7 +330,7 @@ class Graph
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-        void update();
+        int update(int fonction);
 };
 
 

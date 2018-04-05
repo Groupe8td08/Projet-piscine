@@ -164,7 +164,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_quitter.add_child(m_quitter_label);
     m_quitter_label.set_message("Quitter");
 
-    //ajouter bouton connexe
+    //ajouter bouton sauver
     m_tool_box.add_child(m_sauver);
     m_sauver.set_dim(73,25);
     m_sauver.set_pos(1,33);
@@ -178,6 +178,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_connexe.set_dim(73,25);
     m_connexe.set_pos(1,66);
     m_connexe.set_bg_color(GRIS);
+
     //texte
     m_connexe.add_child(m_connexe_label);
     m_connexe_label.set_message("Connexe");
@@ -211,10 +212,10 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-void Graph::update()
+int Graph::update(int fonction)
 {
     if (!m_interface)
-        return;
+        //return;
 
     for (auto &elt : m_vertices)
         elt.second.pre_update();
@@ -231,7 +232,73 @@ void Graph::update()
         elt.second.post_update();
 
     //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
+    if(m_interface->m_connexe.clicked())
+    {
 
+        if(fonction!=1)
+        {
+            fonction=1;
+            std::cout<<"connexe"<<std::endl;
+            m_interface->m_connexe.set_bg_color(BLANCROSE);
+        }
+        else
+        {
+            fonction=0;
+            std::cout<<"Q_connexe"<<std::endl;
+            m_interface->m_connexe.set_bg_color(GRIS);
+        }
+
+    }
+    if(m_interface->m_k_connexe.clicked())
+    {
+
+        if(fonction!=2)
+        {
+            fonction=2;
+            std::cout<<"k_connexe"<<std::endl;
+            m_interface->m_k_connexe.set_bg_color(BLANCROSE);
+        }
+        else
+        {
+             fonction=0;
+             std::cout<<"Q_k_connexe"<<std::endl;
+             m_interface->m_k_connexe.set_bg_color(GRIS);
+        }
+
+    }
+    if(m_interface->m_k_sommet_connexe.clicked())
+    {
+
+        if(fonction!=3)
+        {
+            fonction=3;
+            std::cout<<"k_sommet_connexe"<<std::endl;
+            m_interface->m_k_sommet_connexe.set_bg_color(BLANCROSE);
+        }
+        else
+        {
+            fonction=0;
+            std::cout<<"Q_k_sommet_connexe"<<std::endl;
+            m_interface->m_k_sommet_connexe.set_bg_color(GRIS);
+        }
+    }
+    if(m_interface->m_temps_reel.clicked())
+    {
+
+        if(fonction!=4)
+        {
+            fonction=4;
+            std::cout<<"temps reel"<<std::endl;
+            m_interface->m_temps_reel.set_bg_color(ROUGE);
+        }
+        else
+        {
+            fonction=0;
+            std::cout<<"Q_temps reel"<<std::endl;
+            m_interface->m_temps_reel.set_bg_color(VERT);
+        }
+    }
+    return fonction;
 
 }
 
