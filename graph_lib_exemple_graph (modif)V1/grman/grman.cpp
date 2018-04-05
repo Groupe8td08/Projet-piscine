@@ -29,7 +29,7 @@ namespace grman
 #define PAGE_COULEUR_INIT BLANC
 
 // Temporisation de la boucle de jeu en ms ( rest dans mettre_a_jour )
-#define TEMPO_MAJ 20
+#define TEMPO_MAJ 50
 
 int page_color=PAGE_COULEUR_INIT;
 
@@ -130,10 +130,15 @@ void set_pictures_path(std::string path_name)
     g_pic_path = path_name;
 }
 
-void mettre_a_jour()
+void mettre_a_jour(int fonction)
 {
     buf_afficher_page();
-    rest(TEMPO_MAJ);
+    if(fonction==4)
+    {
+        rest(500);
+    }
+    else
+        rest(TEMPO_MAJ);
 
     rafraichir_clavier_souris();
     buf_effacer_page();

@@ -71,3 +71,22 @@ void reseau_3(Graph g1)
         std::cout<<"sauver"<<std::endl;
     }
 }
+
+void tempsur(int choix, Graph *g1, Graph *g2, Graph *g3)
+{
+    if(choix==1)
+    {
+        std::cout<<"g1"<<std::endl;
+        g1->temps_reel();
+    }
+    if(choix==2)
+    {
+        std::cout<<"g2"<<std::endl;
+        g2->temps_reel();
+    }
+    if(choix==3)
+    {
+        std::cout<<"g3"<<std::endl;
+        g3->temps_reel();
+    }
+}

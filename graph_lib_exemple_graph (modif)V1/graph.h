@@ -141,6 +141,7 @@ class Vertex
 
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         double m_value;
+        double m_coef_r=1.3;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
@@ -332,6 +333,7 @@ class Graph
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
         int updatex(int fonction);
+        void temps_reel();
 };
 
 

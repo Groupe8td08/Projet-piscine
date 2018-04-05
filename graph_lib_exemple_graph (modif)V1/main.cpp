@@ -35,7 +35,7 @@ int main()
             fonction=g1.updatex(fonction);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
-            grman::mettre_a_jour();
+            //grman::mettre_a_jour();
             reseau_1(g1);
         }
         if(choix==2)
@@ -44,7 +44,7 @@ int main()
             fonction=g2.updatex(fonction);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
-            grman::mettre_a_jour();
+            //grman::mettre_a_jour();
             reseau_2(g2);
         }
         if(choix==3)
@@ -53,7 +53,7 @@ int main()
             fonction=g3.updatex(fonction);
 
             /// Mise à jour générale (clavier/souris/buffer etc...)
-            grman::mettre_a_jour();
+            //grman::mettre_a_jour();
             reseau_3(g3);
         }
         if(choix==4)
@@ -69,12 +69,15 @@ int main()
             std::cout<<"3"<<std::endl;
 
         if(fonction==4)
-            std::cout<<"4"<<std::endl;
+        {
+            tempsur(choix, &g1, &g2, &g3);
+        }
 
         if(mouse_y<35 && mouse_x<103 && mouse_x>25 && mouse_b&1)
         {
             choix=0;
         }
+        grman::mettre_a_jour(fonction);
     }
 
     grman::fermer_allegro();

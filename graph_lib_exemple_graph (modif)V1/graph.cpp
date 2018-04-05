@@ -219,13 +219,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_connexe.clicked())
     {
 
-        if(fonction!=1)
+        if(fonction==0)
         {
             fonction=1;
             std::cout<<"connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==1)
         {
             fonction=0;
             std::cout<<"Q_connexe"<<std::endl;
@@ -236,13 +236,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_k_connexe.clicked())
     {
 
-        if(fonction!=2)
+        if(fonction==0)
         {
             fonction=2;
             std::cout<<"k_connexe"<<std::endl;
             m_interface->m_k_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==2)
         {
              fonction=0;
              std::cout<<"Q_k_connexe"<<std::endl;
@@ -252,14 +252,13 @@ int Graph::updatex(int fonction)
     }
     if(m_interface->m_k_sommet_connexe.clicked())
     {
-
-        if(fonction!=3)
+        if(fonction==0)
         {
             fonction=3;
             std::cout<<"k_sommet_connexe"<<std::endl;
             m_interface->m_k_sommet_connexe.set_bg_color(BLANCROSE);
         }
-        else
+        else if(fonction==3)
         {
             fonction=0;
             std::cout<<"Q_k_sommet_connexe"<<std::endl;
@@ -269,13 +268,13 @@ int Graph::updatex(int fonction)
     if(m_interface->m_temps_reel.clicked())
     {
 
-        if(fonction!=4)
+        if(fonction==0)
         {
             fonction=4;
             std::cout<<"temps reel"<<std::endl;
             m_interface->m_temps_reel.set_bg_color(ROUGE);
         }
-        else
+        else if(fonction==4)
         {
             fonction=0;
             std::cout<<"Q_temps reel"<<std::endl;
@@ -405,7 +404,6 @@ void Graph::load(string nom_fichier)
     }
 }
 
-
 void Graph::save(string nom_fichier)
 {
     int**matrice=nullptr;
@@ -451,5 +449,47 @@ void Graph::save(string nom_fichier)
 
 }
 
+void Graph::temps_reel()
+{
+    ///K capacité de portage
+    double capacit;
+    std::vector<double> liste;
+    double total;
+    double coef;
+    double populas;
+    double R;
 
+    for(auto elem: m_vertices)
+    {
+        capacit=0;
+        total=0;
+        for(auto arete: m_edges)
+        {
+            if(m_edges[arete.first].m_to==elem.first && m_vertices[arete.second.m_from].m_value > 0)
+            {
+                coef = 1+(m_edges[arete.first].m_weight)/1000;
+                populas = m_vertices[arete.second.m_from].m_value;
+                capacit+=coef*populas;
+            }
+            else if(m_edges[arete.first].m_from==elem.first && m_vertices[arete.second.m_to].m_value > 0)
+            {
+                coef = 1+(m_edges[arete.first].m_weight)/1000;
+                populas = m_vertices[arete.second.m_to].m_value;
+                liste.push_back(coef*populas);
+            }
+
+        }
+        for(auto coef : liste)
+            total += coef/10;
+        R = m_vertices[elem.first].m_coef_r;
+        populas = m_vertices[elem.first].m_value;
+        populas+= R*populas*(1-(populas/capacit))-total;
+        m_vertices[elem.first].m_value = capacit;
+
+        if(m_vertices[elem.first].m_value < 0)
+            m_vertices[elem.first].m_value = 0;
+
+        liste.erase(liste.begin(),liste.end());
+    }
+}
 

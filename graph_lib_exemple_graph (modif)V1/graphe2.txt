@@ -1,13 +1,13 @@
 9 16
-0 10 49 55 plante.jpg
-1 15 379 14 triceratops.jpg
-2 20 564 71 hadrausorus.jpg
-3 11 136 251 ankylosorus.jpg
-4 5 7 403 lezard.jpg
-5 7 628 259 insecte.jpg
-6 16 400 335 galliminus.jpg
-7 12 493 511 velociraptor.jpg
-8 24.2857 98 537 tyrannosaurus.jpg
+0 77.1429 47 53 plante.jpg
+1 25.7143 377 12 triceratops.jpg
+2 18.5714 562 69 hadrausorus.jpg
+3 0 134 249 ankylosorus.jpg
+4 25.7143 5 401 lezard.jpg
+5 47.1429 626 257 insecte.jpg
+6 0 398 333 galliminus.jpg
+7 42.8571 491 509 velociraptor.jpg
+8 22.8571 96 535 tyrannosaurus.jpg
 0 0 0 0 0 0 0 0 0 
 1 0 0 0 0 0 0 0 0 
 1 0 0 0 0 0 0 0 0 
