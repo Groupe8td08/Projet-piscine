@@ -133,11 +133,7 @@ class Vertex
     friend class EdgeInterface;
 
     private :
-        /// liste des indices des arcs arrivant au sommet : accès aux prédécesseurs
-        std::vector<int> m_in;
 
-        /// liste des indices des arcs partant du sommet : accès aux successeurs
-        std::vector<int> m_out;
 
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         double m_value;
@@ -146,14 +142,17 @@ class Vertex
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
 
-        ///marque
-        int m_marque=0;
-        int m_sommet=0;
         // Docu shared_ptr : https://msdn.microsoft.com/fr-fr/library/hh279669.aspx
         // La ligne précédente est en gros équivalent à la ligne suivante :
         // VertexInterface * m_interface = nullptr;
 
     public:
+
+                /// liste des indices des arcs arrivant au sommet : accès aux prédécesseurs
+        std::vector<int> m_in;
+
+        /// liste des indices des arcs partant du sommet : accès aux successeurs
+        std::vector<int> m_out;
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
@@ -226,6 +225,9 @@ class Edge
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<EdgeInterface> m_interface = nullptr;
 
+        ///Indice de l'arete
+        int m_idx;
+
 
     public:
 
@@ -282,31 +284,67 @@ class GraphInterface
         grman::WidgetText m_temps_reel_label;
 
 
+                grman::WidgetButton m_sommet0;
+        grman::WidgetText m_sommet_label0;
 
+        grman::WidgetButton m_sommet1;
+        grman::WidgetText m_sommet_label1;
 
+        grman::WidgetButton m_sommet2;
+        grman::WidgetText m_sommet_label2;
 
-        // A compléter éventuellement par des widgets de décoration ou
-        // d'édition (boutons ajouter/enlever ...)
+        grman::WidgetButton m_sommet3;
+        grman::WidgetText m_sommet_label3;
+
+        grman::WidgetButton m_sommet4;
+        grman::WidgetText m_sommet_label4;
+
+        grman::WidgetButton m_sommet5;
+        grman::WidgetText m_sommet_label5;
+
+        grman::WidgetButton m_sommet6;
+        grman::WidgetText m_sommet_label6;
+
+        grman::WidgetButton m_sommet7;
+        grman::WidgetText m_sommet_label7;
+
+        grman::WidgetButton m_sommet8;
+        grman::WidgetText m_sommet_label8;
+
+        grman::WidgetButton m_sommet9;
+        grman::WidgetText m_sommet_label9;
+
+        grman::WidgetButton m_sommet10;
+        grman::WidgetText m_sommet_label10;
+
+        grman::WidgetButton m_sommet11;
+        grman::WidgetText m_sommet_label11;
 
     public :
 
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
         GraphInterface(int x, int y, int w, int h);
+        void sommet_box1();
+        void sommet_box2();
+        void sommet_box3();
 };
 
 
 class Graph
 {
 
+
     private :
         int m_ordre;
         int m_degre;
         /// La "liste" des arêtes
         std::map<int, Edge> m_edges;
+        std::map<int, Edge> m_arete;
 
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
+        std::map<int, Vertex> m_sommet;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
@@ -331,6 +369,8 @@ class Graph
         void load(std::string nom_fichier);
         int** init(int** m_matrice);
         void save(std::string nom_fichier);
+        void modi_sommet(int i, int aff);
+
         void connexe();
 
 

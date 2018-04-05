@@ -211,6 +211,116 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_temps_reel_label.set_message("Evolution");
 }
 
+void GraphInterface::sommet_box1()
+{
+    m_tool_box.add_child(m_sommet0);
+    m_sommet0.set_dim(73,25);
+    m_sommet0.set_pos(1,166);
+    m_sommet0.set_bg_color(GRIS);
+
+    m_sommet0.add_child(m_sommet_label0);
+    m_sommet_label0.set_message("Sommet 0");
+///----------------------------------------------
+    m_tool_box.add_child(m_sommet1);
+    m_sommet1.set_dim(73,25);
+    m_sommet1.set_pos(1,196);
+    m_sommet1.set_bg_color(GRIS);
+
+    m_sommet1.add_child(m_sommet_label1);
+    m_sommet_label1.set_message("Sommet 1");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet2);
+    m_sommet2.set_dim(73,25);
+    m_sommet2.set_pos(1,226);
+    m_sommet2.set_bg_color(GRIS);
+
+    m_sommet2.add_child(m_sommet_label2);
+    m_sommet_label2.set_message("Sommet 2");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet3);
+    m_sommet3.set_dim(73,25);
+    m_sommet3.set_pos(1,256);
+    m_sommet3.set_bg_color(GRIS);
+
+    m_sommet3.add_child(m_sommet_label3);
+    m_sommet_label3.set_message("Sommet 3");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet4);
+    m_sommet4.set_dim(73,25);
+    m_sommet4.set_pos(1,286);
+    m_sommet4.set_bg_color(GRIS);
+
+    m_sommet4.add_child(m_sommet_label4);
+    m_sommet_label4.set_message("Sommet 4");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet5);
+    m_sommet5.set_dim(73,25);
+    m_sommet5.set_pos(1,316);
+    m_sommet5.set_bg_color(GRIS);
+
+    m_sommet5.add_child(m_sommet_label5);
+    m_sommet_label5.set_message("Sommet 5");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet6);
+    m_sommet6.set_dim(73,25);
+    m_sommet6.set_pos(1,346);
+    m_sommet6.set_bg_color(GRIS);
+
+    m_sommet6.add_child(m_sommet_label6);
+    m_sommet_label6.set_message("Sommet 6");
+
+}
+
+void GraphInterface::sommet_box2()
+{
+    ///-------------------------------------------------
+    m_tool_box.add_child(m_sommet7);
+    m_sommet7.set_dim(73,25);
+    m_sommet7.set_pos(1,376);
+    m_sommet7.set_bg_color(GRIS);
+
+    m_sommet7.add_child(m_sommet_label7);
+    m_sommet_label7.set_message("Sommet 7");
+
+    ///-------------------------------------------------
+    m_tool_box.add_child(m_sommet8);
+    m_sommet8.set_dim(73,25);
+    m_sommet8.set_pos(1,406);
+    m_sommet8.set_bg_color(GRIS);
+
+    m_sommet8.add_child(m_sommet_label8);
+    m_sommet_label8.set_message("Sommet 8");
+}
+
+void GraphInterface::sommet_box3()
+{
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet9);
+    m_sommet9.set_dim(73,25);
+    m_sommet9.set_pos(1,436);
+    m_sommet9.set_bg_color(GRIS);
+
+    m_sommet9.add_child(m_sommet_label9);
+    m_sommet_label9.set_message("Sommet 9");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet10);
+    m_sommet10.set_dim(73,25);
+    m_sommet10.set_pos(1,466);
+    m_sommet10.set_bg_color(GRIS);
+
+    m_sommet10.add_child(m_sommet_label10);
+    m_sommet_label10.set_message("Sommet 10");
+///-------------------------------------------------
+    m_tool_box.add_child(m_sommet11);
+    m_sommet11.set_dim(73,25);
+    m_sommet11.set_pos(1,496);
+    m_sommet11.set_bg_color(GRIS);
+
+    m_sommet11.add_child(m_sommet_label11);
+    m_sommet_label11.set_message("Sommet 11");
+}
+
+
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 int Graph::updatex(int fonction)
 {
@@ -302,6 +412,11 @@ void Graph::update()
 
     for (auto &elt : m_edges)
         elt.second.post_update();
+
+	for(auto elem : m_edges)
+    {
+        elem.second.m_interface->m_top_edge.set_epaisseur(elem.second.m_weight);
+    }
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -320,6 +435,7 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
     m_vertices[idx] = Vertex(value, vi);
 
 
+
 }
 
 /// Aide à l'ajout d'arcs interfacés
@@ -336,6 +452,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         std::cerr << "Error adding edge idx=" << idx << " between vertices " << id_vert1 << " and " << id_vert2 << " not in m_vertices" << std::endl;
         throw "Error adding edge";
     }
+    m_edges[idx].m_idx=idx;
 
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
@@ -344,6 +461,9 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
 
     m_edges[idx].m_from=id_vert1;
     m_edges[idx].m_to=id_vert2;
+
+    m_vertices[id_vert1].m_out.push_back(id_vert2);
+    m_vertices[id_vert2].m_in.push_back(id_vert1);
 }
 
 /// Méthode spéciale qui construit un graphe arbitraire (démo)
@@ -357,6 +477,24 @@ void Graph::make_example(std::string fichier)
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
     load(fichier);
+
+    //Creer boutton
+    if(fichier=="graphe1.txt")
+    {
+         m_interface->sommet_box1();
+    }
+    if(fichier=="graphe2.txt")
+    {
+         m_interface->sommet_box1();
+         m_interface->sommet_box2();
+    }
+    if(fichier=="graphe3.txt")
+    {
+         m_interface->sommet_box1();
+         m_interface->sommet_box2();
+         m_interface->sommet_box3();
+    }
+
 }
 
 int** Graph::init(int** m_matrice)
@@ -366,6 +504,7 @@ int** Graph::init(int** m_matrice)
     {
         m_matrice[i]= new int [m_ordre];
     }
+
 
     return m_matrice;
 }
@@ -449,6 +588,38 @@ void Graph::save(string nom_fichier)
 
 }
 
+void Graph::modi_sommet(int i, int aff)
+{
+    if(aff==0)
+    {
+        for(unsigned int j=0; j<m_vertices[i].m_in.size();j++)
+        {
+            m_arete[m_vertices[i].m_in[j]]=m_edges.at(m_vertices[i].m_in[j]);
+            m_interface->m_main_box.remove_child(m_edges[m_vertices[i].m_in[j]].m_interface->m_top_edge);
+        }
+
+        for(unsigned int j=0; j<m_vertices[i].m_out.size();j++)
+        {
+            m_arete[m_vertices[i].m_out[j]]=m_edges.at(m_vertices[i].m_out[j]);
+            m_interface->m_main_box.remove_child(m_edges[m_vertices[i].m_out[j]].m_interface->m_top_edge);
+        }
+        m_sommet[i]=m_vertices.at(i);
+        m_interface->m_main_box.remove_child(m_vertices[i].m_interface->m_top_box);
+
+    }
+
+    if(aff==1)
+    {
+        add_interfaced_vertex(i, m_sommet[i].m_value,m_sommet[i].m_interface->m_top_box.get_posy(),
+                              m_sommet[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
+        add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
+    }
+    else
+    {
+
+    }
+}
+
 void Graph::temps_reel()
 {
     ///K capacité de portage
@@ -492,52 +663,20 @@ void Graph::temps_reel()
         liste.erase(liste.begin(),liste.end());
     }
 }
-void Graph::connexe() ///Bool sous forme de int
-{
-    int** matrice;
-    std::vector<Vertex>m_memo;///avec les vertex
-    std::vector<int>m_memo2;///avec int
-    std::cout<<"connexite du graphe:"<<std::endl;
-    for(int i=0;i<m_ordre;i++) ///all sommets (m-ordre ou m_vertices.size()
-    {       //std::cout<<"ii"<<std::endl;
+void Graph::connexe()
+{ std::cout<<" connexite "<<std::endl;
 
-            m_memo.push_back(m_vertices[i]);///vertex
-            m_memo2.push_back(i);///int
+    for(auto elem: m_vertices)
+    {
 
-            matrice=init(matrice);
-
-//             std::cout<<"push_back et matrice init"<<std::endl;
-
-//            std::cout<<"vertices i"<<std::endl;
-                    for(int k=0;k<m_ordre;k++)
-                    {
-                        if(matrice[i][k]!=0)
-                        {
-//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"link"<<std::endl;///vertex
-                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" link"<<std::endl;
-                            m_vertices[k].m_marque = 1;
-
-                            m_memo.push_back(m_vertices[k]);///vertex
-                            m_memo2.push_back(k);
-                        }
-                        else if(matrice[i][k]==0){
-//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"pas de link"<<std::endl;///vertex
-                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" pas de link"<<std::endl;
-
-                            m_vertices[k].m_marque = 0;
-
-                            }
-//                        if(m_memo[k].m_marque==m_memo[k+1].m_marque)///vertex
-                        if(m_memo2[i]==m_memo2[k])///int
-                        {
-//                            std::cout<<m_memo[k].m_marque<<" et "<<m_memo[k+1].m_marque<<"connexe"<<std::endl;///vertex
-
-                            std::cout<<m_memo2[i]<<" et "<<m_memo2[k]<<" connexe"<<std::endl;///int
-
-                        }
-                    }
+        for(auto arete: m_edges)
+        {
+            if(m_edges[arete.first].m_to==elem.first)
+               {
+                 std::cout<<" test "<<std::endl;
+               }
 
 
         }
-std::cout<<std::endl;
     }
+}

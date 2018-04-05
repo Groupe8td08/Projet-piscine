@@ -3,6 +3,7 @@
 int main()
 {
     int choix=0;
+    int fonction=0;
     BITMAP* pagina;
 
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
@@ -21,11 +22,6 @@ int main()
     g2.make_example("graphe2.txt");
     g3.make_example("graphe3.txt");
 
-    ///Tests connexité graph::connexe() ( pb de lecture ex:graphe1 manque 3 liens)
-    g1.connexe();
-//    g2.connexe();
-//    g3.connexe();
-
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC])
@@ -35,23 +31,56 @@ int main()
 
         if(choix==1)
         {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+            fonction=g1.updatex(fonction);
+
+            /// Mise à jour générale (clavier/souris/buffer etc...)
+            //grman::mettre_a_jour();
             reseau_1(g1);
         }
         if(choix==2)
         {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+            fonction=g2.updatex(fonction);
+
+            /// Mise à jour générale (clavier/souris/buffer etc...)
+            //grman::mettre_a_jour();
             reseau_2(g2);
         }
         if(choix==3)
         {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+            fonction=g3.updatex(fonction);
+
+            /// Mise à jour générale (clavier/souris/buffer etc...)
+            //grman::mettre_a_jour();
             reseau_3(g3);
         }
         if(choix==4)
             break;
 
+        if(fonction==1)
+        {
+            std::cout<<"1"<<std::endl;
+            m_connexe(choix, &g1, &g2, &g3);
+        }
+
+        if(fonction==2)
+            std::cout<<"2"<<std::endl;
+
+        if(fonction==3)
+            std::cout<<"3"<<std::endl;
+
+        if(fonction==4)
+        {
+            tempsur(choix, &g1, &g2, &g3);
+        }
+
         if(mouse_y<35 && mouse_x<103 && mouse_x>25 && mouse_b&1)
         {
             choix=0;
         }
+        grman::mettre_a_jour(fonction);
     }
 
     grman::fermer_allegro();
