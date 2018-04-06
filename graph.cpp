@@ -805,7 +805,7 @@ void Graph::save(string nom_fichier)
     {
         fichier<<m_ordre<<" "<</*m_degre<<*/"\n";
         for(int i=0; i<m_ordre; i++)
-        {
+        {//elem.second
             fichier<<i<<" "<<m_vertices[i].m_value<<" "<<m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()
                    <<" "<<m_vertices[i].m_interface->m_img.get_pic_name();
             fichier<<"\n";
@@ -2026,5 +2026,3 @@ void Graph::k_connexe()
     cout<<"Ce graphe est un "<<v<<"-plet"<<endl;
 }
 
-
->>>>>>> majreel
