@@ -46,7 +46,10 @@ void Vertex::set_marqued(bool ver)
 {
     marqued=ver;
 }
-
+void Vertex::set_k_marqued(bool k_mar)
+{
+    k_marque=k_mar;
+}
 bool Vertex::get_marqued()
 {
     return marqued;
@@ -217,16 +220,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     m_temps_reel.add_child(m_temps_reel_label);
     m_temps_reel_label.set_message("Evolution");
-
-       //ajouter bouton arete
-    m_tool_box.add_child(m_arete);
-    m_arete.set_dim(73,25);
-    m_arete.set_pos(1,655);
-    m_arete.set_bg_color(ROSE);
-
-    //texte
-    m_arete.add_child(m_arete_label);
-    m_arete_label.set_message("Aretee");
 }
 
 void GraphInterface::sommet_box1()
@@ -342,8 +335,6 @@ void GraphInterface::sommet_box3()
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix)
 {
-    std::string sommet_1;
-    std::string sommet_2;
     update();
     //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
     if(m_interface->m_connexe.clicked())
@@ -383,6 +374,14 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             fonction=2;
             std::cout<<"k_connexe"<<std::endl;
             m_interface->m_k_connexe.set_bg_color(BLANCROSE);
+            if(choix==1)
+                k_connexe();
+
+            if(choix==2)
+                k_connexe();
+
+            if(choix==3)
+                k_connexe();
         }
         else if(fonction==2)
         {
@@ -422,30 +421,6 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             std::cout<<"Q_temps reel"<<std::endl;
             m_interface->m_temps_reel.set_bg_color(VERT);
         }
-    }
-       if(m_interface->m_arete.clicked())
-    {
-
-        if(fonction==0)
-        {
-            fonction=5;
-            std::cout<<"m_arete:"<<std::endl;
-            std::cout<<"Saisir les sommets a relier ex : Sommet 1 -> Sommet2"<<std::endl;
-            std::cout<<"Sommet 1:"<<std::endl;
-            std::cin>>sommet_1;
-            std::cout<<"Sommet 2:"<<std::endl;
-            std::cin>>sommet_2;
-            std::cout<<sommet_1<<" -> "<<sommet_2<<std::endl;
-
-            m_interface->m_arete.set_bg_color(BLANCROSE);
-        }
-        else if(fonction==5)
-        {
-             fonction=0;
-             std::cout<<"Arete"<<std::endl;
-             m_interface->m_arete.set_bg_color(ROSE);
-        }
-
     }
     if(choix>0 && choix<4)
     {
@@ -708,7 +683,7 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
-    for(auto elem : m_edges)
+    for(auto &elem : m_edges)
     {
         elem.second.m_interface->m_top_edge.set_epaisseur(elem.second.m_weight);
     }
@@ -1004,7 +979,7 @@ void Graph::connexe()
                 cout<<"du sommet "<<arete.second.m_from<<" aux "<<arete.second.m_to<<endl;
                 m_pile.push_back(arete.second.m_to);
                 cout<<"push"<<arete.second.m_to<<endl;
-               m_edges[arete.first].m_interface->m_top_edge.set_m_color(ROUGE);
+                m_edges[arete.first].m_interface->m_top_edge.set_m_color(ROUGE);
             }
         }
     }
@@ -1021,83 +996,56 @@ void Graph::deconnexe()
         }
     }
 }
+
 void Graph::k_connexe()
 {
-//    std::vector<int>m_pile;
-//    for(auto elem: m_vertices)
-//    {
-//
-//        if(((elem.second.m_out.size()!=0) || (elem.second.m_in.size()!=0)) && (m_vertices[elem.first].m_marque==false))
-//            {
-////              std::cout<<elem.first<<std::endl;
-//                m_vertices[elem.first].m_marque = true;
-//                ///Marqué donc on surpprime ses aretes
-//                std::cout<<elem.first<<" bool "<<m_vertices[elem.first].m_marque<<std::endl;///test
-//                m_pile.push_back(elem.first);///je suis un vecteur
-//
-//            }
-//        else if(m_vertices[elem.first].m_marque==true)
-//            {
-//            std::cout<<"deja lu"<<std::endl;
-//            }
-//             }
-//     for(int i=0;i<m_pile.size();i++)
-//        {
-//            std::cout<<m_pile[i]<<" -> ";
-//
-//        }
-//        std::cout<<std::endl;
-//      std::cout<<m_pile.size()<<"-plets"<<std::endl;
 
-
-for(auto elem:m_vertices)
-{
-
-    int k=0;
-    for(auto arete: m_edges)
+    for(auto elem:m_vertices)
     {
-        if(arete.second.m_from==elem.first || arete.second.m_to==elem.first)
+
+        int k=0;
+        for(auto arete: m_edges)
         {
-            k++;
-
+            if(arete.second.m_from==elem.first || arete.second.m_to==elem.first)
+            {
+                k++;
+            }
         }
+        m_vertices[elem.first].degre=k;
 
     }
-    m_vertices[elem.first].degre=k;
-
-}
-int x=0;
-int v=0;
-for(auto elem:m_vertices)
-{
-    ///comparaison
-    ///iterator parcours de map si le premier egale au k
-    if(v==0)
-        x=elem.first;
-
-    if(v<elem.second.degre)
+    int x=0;
+    int v=0;
+    for(auto elem:m_vertices)
     {
-        x=elem.first;
-        v=elem.second.degre;
-
+        ///comparaison
+        ///iterator parcours de map si le premier egale au k
+        if(v==0 || v>elem.second.degre || v==elem.second.degre)
+        {
+            x=elem.first;
+            v=elem.second.degre;
+        }
     }
+    cout<<"L' element deconnecte est "<<x<<endl;
+    for(auto elem : m_edges)
+    {
+        if(elem.second.m_from==x)
+        {
+            m_vertices[elem.second.m_to].set_k_marqued(true);
+        }
+        if(elem.second.m_to==x)
+        {
+            m_vertices[elem.second.m_from].set_k_marqued(true);
+        }
+    }
+    for(auto elem: m_vertices)
+    {
+        if(elem.second.k_marque)
+        {
+            cout<<"tuer sommet "<<elem.first<<endl;
+        }
+    }
+    cout<<"Ce graphe est un "<<v<<"-plet"<<endl;
 }
 
-///Tant qu'on n'a pas un sommet sans connexion on tourne
-///for(auto elem: m_vertices) parcours des sommets
-///{ on supprime i sommets on true un booleen }
-///i++ dans la boucle tant que
-/// Sortie de boucle while
-/// Sortie cout i-plets
-int i=0;
-//while()
-
-
-}
-
-///Pour chaque k de 0 à ordre et tant que kmin non trouvé
-///Pour chaque k-plet de sommets
-///Si le fait de neutraliser ces k sommet déconnecte le graphe alors
-///kmin trouvé : kmin = k (mais on termine bien la boucle « Pour chaque k-plet... »)
-///Enregistrer ce k-plet de sommets (pour montrer après)
 
