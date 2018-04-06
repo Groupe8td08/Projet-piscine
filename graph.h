@@ -276,6 +276,7 @@ class GraphInterface
         grman::WidgetButton m_k_sommet_connexe;
         grman::WidgetButton m_temps_reel;
 
+
         grman::WidgetText m_quitter_label;
         grman::WidgetText m_sauver_label;
         grman::WidgetText m_connexe_label;
@@ -283,8 +284,10 @@ class GraphInterface
         grman::WidgetText m_k_sommet_connexe_label;
         grman::WidgetText m_temps_reel_label;
 
+        grman::WidgetText m_arete_label;
+        grman::WidgetButton m_arete;
 
-                grman::WidgetButton m_sommet0;
+        grman::WidgetButton m_sommet0;
         grman::WidgetText m_sommet_label0;
 
         grman::WidgetButton m_sommet1;
@@ -336,8 +339,9 @@ class Graph
 
 
     private :
-        int m_ordre;
+
         int m_degre;
+        int m_ordre;
         /// La "liste" des arêtes
         std::map<int, Edge> m_edges;
         std::map<int, Edge> m_arete;
@@ -351,6 +355,7 @@ class Graph
 
 
     public:
+
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
@@ -371,10 +376,12 @@ class Graph
         void save(std::string nom_fichier);
         void modi_sommet(int i, int aff);
 
+        int factoriel (int n);
+        int binomial();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
-        int updatex(int fonction);
+        int updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix);
         void temps_reel();
 };
 
