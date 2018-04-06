@@ -16,7 +16,8 @@ int main()
 
     /// Un exemple de graphe
 
-    pagina=load_bitmap("accueil.bmp",NULL);
+    pagina=load_bitmap("pics\\accueil.bmp",NULL);
+
     Graph g1;
     Graph g2;
     Graph g3;
@@ -60,9 +61,6 @@ int main()
         }
         if(choix==4)
             break;
-
-        if(fonction==1)
-            std::cout<<"1"<<std::endl;
 
         if(fonction==2)
             std::cout<<"2"<<std::endl;

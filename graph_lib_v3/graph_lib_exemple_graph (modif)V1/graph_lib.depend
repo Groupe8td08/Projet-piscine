@@ -192,7 +192,7 @@
 1522855612 c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\grman\coords.h
 	<cmath>
 
-1522949689 c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\grman\widget.h
+1523023063 c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\grman\widget.h
 	"grman.h"
 	<iostream>
 	<string>
@@ -200,15 +200,16 @@
 	<algorithm>
 	<allegro.h>
 
-1522940400 c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\graph.h
+1523026788 c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\graph.h
 	<vector>
 	<map>
 	<string>
 	<memory>
 	<fstream>
+	<stack>
 	"grman/grman.h"
 
-1522949689 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\graph.cpp
+1523026788 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\graph.cpp
 	"graph.h"
 
 1522855612 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\grman\coords.cpp
@@ -228,9 +229,9 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
-1522855612 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\grman\widget.cpp
+1523023183 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\grman\widget.cpp
 	"widget.h"
 
-1522940778 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\main.cpp
+1523021561 source:c:\users\jerome\desktop\ece cours\informatique\graph_lib_exemple_graph (modif)v1\main.cpp
 	"ajout.h"
 

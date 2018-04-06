@@ -42,7 +42,15 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
     m_label_idx.set_message( std::to_string(idx) );
 }
 
+void Vertex::set_marqued(bool ver)
+{
+    marqued=ver;
+}
 
+bool Vertex::get_marqued()
+{
+    return marqued;
+}
 /// Gestion du Vertex avant l'appel à l'interface
 void Vertex::pre_update()
 {
@@ -334,12 +342,24 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             fonction=1;
             std::cout<<"connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(BLANCROSE);
+            if(choix==1)
+                connexe();
+            if(choix==2)
+                connexe();
+            if(choix==3)
+                connexe();
         }
         else if(fonction==1)
         {
             fonction=0;
             std::cout<<"Q_connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(GRIS);
+            if(choix==1)
+                deconnexe();
+            if(choix==2)
+                deconnexe();
+            if(choix==3)
+                deconnexe();
         }
 
     }
@@ -463,7 +483,7 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             if(*d==1)
             {
                 m_interface->m_sommet3.set_bg_color(GRIS);
-              //  modi_sommet(3,1);
+                //  modi_sommet(3,1);
                 *d=0;
             }
             if(*d==2)
@@ -482,7 +502,7 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             if(*e==1)
             {
                 m_interface->m_sommet4.set_bg_color(GRIS);
-               // modi_sommet(4,1);
+                // modi_sommet(4,1);
                 *e=0;
             }
             if(*e==2)
@@ -501,7 +521,7 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             if(*f==1)
             {
                 m_interface->m_sommet5.set_bg_color(GRIS);
-               // modi_sommet(5,1);
+                // modi_sommet(5,1);
                 *f=0;
             }
             if(*f==2)
@@ -520,7 +540,7 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             if(*g==1)
             {
                 m_interface->m_sommet6.set_bg_color(GRIS);
-               // modi_sommet(6,1);
+                // modi_sommet(6,1);
                 *g=0;
             }
             if(*g==2)
@@ -609,7 +629,8 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             {
                 *k=1;
             }
-        } if(m_interface->m_sommet11.clicked())
+        }
+        if(m_interface->m_sommet11.clicked())
         {
             if(*l==0)
             {
@@ -850,7 +871,7 @@ void Graph::modi_sommet(int i, int aff)
     {
         std::cout<<"aff=1"<<std::endl;
         add_interfaced_vertex(i, m_sommet[i].m_value,m_sommet[i].m_interface->m_top_box.get_posy(),
-                                                        m_sommet[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
+                              m_sommet[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
         add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
     }
     else
@@ -903,4 +924,64 @@ void Graph::temps_reel()
     }
 }
 
+void Graph::connexe()
+{
 
+    for(auto elem : m_vertices)
+    {
+        cout<<elem.first<<endl;
+        int i=0;
+        int j=0;
+        for(auto arete : m_edges)
+        {
+            if(arete.second.m_from==elem.first)
+            {
+                i++;
+                //cout<<"du sommet "<<arete.second.m_from<<" aux "<<arete.second.m_to<<endl;
+                //cout<<m_vertices[arete.second.m_to].get_marqued()<<endl;
+            }
+            if(arete.second.m_from==elem.first && m_vertices[arete.second.m_to].get_marqued())
+            {
+                i=i-1;
+            }
+            if(arete.second.m_to==elem.first)
+            {
+                j++;
+            }
+        }
+
+        cout<<"i="<<i<<endl;
+        if(i==0 || j<1)
+        {
+            m_vertices[elem.first].set_marqued(true);
+            cout<<elem.first<<m_vertices[elem.first].get_marqued()<<"true"<<endl;
+        }
+    }
+
+    for(auto elem : m_vertices)
+    {
+        for(auto arete : m_edges)
+        {
+
+            if(arete.second.m_from==elem.first && !m_vertices[arete.second.m_to].get_marqued() && !m_vertices[arete.second.m_from].get_marqued() )
+            {
+                cout<<"du sommet "<<arete.second.m_from<<" aux "<<arete.second.m_to<<endl;
+                m_pile.push_back(arete.second.m_to);
+                cout<<"push"<<arete.second.m_to<<endl;
+               m_edges[arete.first].m_interface->m_top_edge.set_m_color(ROUGE);
+            }
+        }
+    }
+}
+
+void Graph::deconnexe()
+{
+    for(auto elem : m_vertices)
+    {
+        m_vertices[elem.first].set_marqued(false);
+        for(auto arete : m_edges)
+        {
+            m_edges[arete.first].m_interface->m_top_edge.set_m_color(GRISSOMBRE);
+        }
+    }
+}

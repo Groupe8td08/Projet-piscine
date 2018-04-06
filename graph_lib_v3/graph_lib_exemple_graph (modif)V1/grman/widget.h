@@ -445,6 +445,7 @@ class WidgetEdge : public Widget
         void set_children_lateral(double abs_lat) { m_children_lateral = abs_lat; }
 
         void set_epaisseur(double _epais);
+        void set_m_color(int color);
 };
 
 

@@ -408,6 +408,11 @@ void WidgetEdge::set_epaisseur(double _epais)
     m_thickness=2+_epais/25;
 
 }
+
+void WidgetEdge::set_m_color(int color)
+{
+    m_color=color;
+}
 }
 
 
