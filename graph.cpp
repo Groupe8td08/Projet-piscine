@@ -42,7 +42,15 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
     m_label_idx.set_message( std::to_string(idx) );
 }
 
+void Vertex::set_marqued(bool ver)
+{
+    marqued=ver;
+}
 
+bool Vertex::get_marqued()
+{
+    return marqued;
+}
 /// Gestion du Vertex avant l'appel à l'interface
 void Vertex::pre_update()
 {
@@ -155,7 +163,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
 
-     //ajouter bouton quitter
+    //ajouter bouton quitter
     m_tool_box.add_child(m_quitter);
     m_quitter.set_dim(73,25);
     m_quitter.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
@@ -210,7 +218,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_temps_reel.add_child(m_temps_reel_label);
     m_temps_reel_label.set_message("Evolution");
 
-     //ajouter bouton arete
+       //ajouter bouton arete
     m_tool_box.add_child(m_arete);
     m_arete.set_dim(73,25);
     m_arete.set_pos(1,655);
@@ -332,8 +340,9 @@ void GraphInterface::sommet_box3()
 
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix)
-{   std::string sommet_1;
+int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix)
+{
+    std::string sommet_1;
     std::string sommet_2;
     update();
     //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
@@ -345,12 +354,24 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             fonction=1;
             std::cout<<"connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(BLANCROSE);
+            if(choix==1)
+                connexe();
+            if(choix==2)
+                connexe();
+            if(choix==3)
+                connexe();
         }
         else if(fonction==1)
         {
             fonction=0;
             std::cout<<"Q_connexe"<<std::endl;
             m_interface->m_connexe.set_bg_color(GRIS);
+            if(choix==1)
+                deconnexe();
+            if(choix==2)
+                deconnexe();
+            if(choix==3)
+                deconnexe();
         }
 
     }
@@ -365,9 +386,9 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
         }
         else if(fonction==2)
         {
-             fonction=0;
-             std::cout<<"Q_k_connexe"<<std::endl;
-             m_interface->m_k_connexe.set_bg_color(GRIS);
+            fonction=0;
+            std::cout<<"Q_k_connexe"<<std::endl;
+            m_interface->m_k_connexe.set_bg_color(GRIS);
         }
 
     }
@@ -402,7 +423,7 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             m_interface->m_temps_reel.set_bg_color(VERT);
         }
     }
-    if(m_interface->m_arete.clicked())
+       if(m_interface->m_arete.clicked())
     {
 
         if(fonction==0)
@@ -439,13 +460,15 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             if(*a==1)
             {
                 m_interface->m_sommet0.set_bg_color(GRIS);
-                modi_sommet(0,1);
+                //modi_sommet(0,1);
                 *a=0;
             }
             if(*a==2)
             {
                 *a=1;
             }
+
+
         }
         if(m_interface->m_sommet1.clicked())
         {
@@ -458,7 +481,7 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             if(*b==1)
             {
                 m_interface->m_sommet1.set_bg_color(GRIS);
-               // modi_sommet(1,1);
+                //modi_sommet(1,1);
                 *b=0;
             }
             if(*b==2)
@@ -496,7 +519,7 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             if(*d==1)
             {
                 m_interface->m_sommet3.set_bg_color(GRIS);
-                //modi_sommet(3,1);
+                //  modi_sommet(3,1);
                 *d=0;
             }
             if(*d==2)
@@ -514,8 +537,8 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             }
             if(*e==1)
             {
-                m_interface->m_sommet3.set_bg_color(GRIS);
-               // modi_sommet(4,1);
+                m_interface->m_sommet4.set_bg_color(GRIS);
+                // modi_sommet(4,1);
                 *e=0;
             }
             if(*e==2)
@@ -523,7 +546,7 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
                 *e=1;
             }
         }
-          if(m_interface->m_sommet5.clicked())
+        if(m_interface->m_sommet5.clicked())
         {
             if(*f==0)
             {
@@ -534,7 +557,7 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             if(*f==1)
             {
                 m_interface->m_sommet5.set_bg_color(GRIS);
-               // modi_sommet(5,1);
+                // modi_sommet(5,1);
                 *f=0;
             }
             if(*f==2)
@@ -553,7 +576,7 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             if(*g==1)
             {
                 m_interface->m_sommet6.set_bg_color(GRIS);
-               // modi_sommet(6,1);
+                // modi_sommet(6,1);
                 *g=0;
             }
             if(*g==2)
@@ -642,7 +665,8 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
             {
                 *k=1;
             }
-        } if(m_interface->m_sommet11.clicked())
+        }
+        if(m_interface->m_sommet11.clicked())
         {
             if(*l==0)
             {
@@ -665,7 +689,6 @@ int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g
     return fonction;
 
 }
-
 void Graph::update()
 {
     if (!m_interface)
@@ -685,7 +708,7 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
-	for(auto elem : m_edges)
+    for(auto elem : m_edges)
     {
         elem.second.m_interface->m_top_edge.set_epaisseur(elem.second.m_weight);
     }
@@ -753,18 +776,18 @@ void Graph::make_example(std::string fichier)
     //Creer boutton
     if(fichier=="graphe1.txt")
     {
-         m_interface->sommet_box1();
+        m_interface->sommet_box1();
     }
     if(fichier=="graphe2.txt")
     {
-         m_interface->sommet_box1();
-         m_interface->sommet_box2();
+        m_interface->sommet_box1();
+        m_interface->sommet_box2();
     }
     if(fichier=="graphe3.txt")
     {
-         m_interface->sommet_box1();
-         m_interface->sommet_box2();
-         m_interface->sommet_box3();
+        m_interface->sommet_box1();
+        m_interface->sommet_box2();
+        m_interface->sommet_box3();
     }
 
 }
@@ -864,13 +887,13 @@ void Graph::modi_sommet(int i, int aff)
 {
     if(aff==0)
     {
-        for(unsigned int j=0; j<m_vertices[i].m_in.size();j++)
+        for(unsigned int j=0; j<m_vertices[i].m_in.size(); j++)
         {
             m_arete[m_vertices[i].m_in[j]]=m_edges.at(m_vertices[i].m_in[j]);
             m_interface->m_main_box.remove_child(m_edges[m_vertices[i].m_in[j]].m_interface->m_top_edge);
         }
 
-        for(unsigned int j=0; j<m_vertices[i].m_out.size();j++)
+        for(unsigned int j=0; j<m_vertices[i].m_out.size(); j++)
         {
             m_arete[m_vertices[i].m_out[j]]=m_edges.at(m_vertices[i].m_out[j]);
             m_interface->m_main_box.remove_child(m_edges[m_vertices[i].m_out[j]].m_interface->m_top_edge);
@@ -882,16 +905,10 @@ void Graph::modi_sommet(int i, int aff)
 
     if(aff==1)
     {
-        VertexInterface* vi=new VertexInterface(i,m_vertices[i].m_interface->m_top_box.get_posy(),
-                              m_vertices[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
-
-         // Ajout de la top box de l'interface de sommet
-        m_interface->m_main_box.add_child(vi->m_top_box);
-
-      //  add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
-
-
-
+        std::cout<<"aff=1"<<std::endl;
+        add_interfaced_vertex(i, m_sommet[i].m_value,m_sommet[i].m_interface->m_top_box.get_posy(),
+                              m_sommet[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
+        add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
     }
     else
     {
@@ -942,44 +959,140 @@ void Graph::temps_reel()
         liste.erase(liste.begin(),liste.end());
     }
 }
-int Graph::factoriel (int n)
-{
-	int facto, i;
-	facto=1;
-	i=1;
 
-	while (i<=n)
-	{
-		facto=facto*i;
-		i=i+1;
-	}
-	return facto;
-}
-int Graph::binomial()///k_connexité
+void Graph::connexe()
 {
-    int bin=0;
-    int n=m_ordre;
-    int a=0;///kmin
 
-    for(int k=0;k<n;k++)
+    for(auto elem : m_vertices)
     {
-        bin=factoriel(n)/(factoriel(k)*factoriel(n-k));
-        a=bin;
-        std::cout<<bin<<std::endl;
-//        std::cout<<bino<<std::endl;
+        cout<<elem.first<<endl;
+        int i=0;
+        int j=0;
+        for(auto arete : m_edges)
+        {
+            if(arete.second.m_from==elem.first)
+            {
+                i++;
+                //cout<<"du sommet "<<arete.second.m_from<<" aux "<<arete.second.m_to<<endl;
+                //cout<<m_vertices[arete.second.m_to].get_marqued()<<endl;
+            }
+            if(arete.second.m_from==elem.first && m_vertices[arete.second.m_to].get_marqued())
+            {
+                i=i-1;
+            }
+            if(arete.second.m_to==elem.first)
+            {
+                j++;
+            }
+        }
+
+        cout<<"i="<<i<<endl;
+        if(i==0 || j<1)
+        {
+            m_vertices[elem.first].set_marqued(true);
+            cout<<elem.first<<m_vertices[elem.first].get_marqued()<<"true"<<endl;
+        }
     }
-//        std::cout<<bin<<std::endl; ///Calcul de Kmin, a
-    bin=0;
-   while(a<bin)
+
+    for(auto elem : m_vertices)
     {
-        for(int k=0;k<n;k++)
-        {bin=factoriel(n)/factoriel(k)*factoriel(n-k);
+        for(auto arete : m_edges)
+        {
+
+            if(arete.second.m_from==elem.first && !m_vertices[arete.second.m_to].get_marqued() && !m_vertices[arete.second.m_from].get_marqued() )
+            {
+                cout<<"du sommet "<<arete.second.m_from<<" aux "<<arete.second.m_to<<endl;
+                m_pile.push_back(arete.second.m_to);
+                cout<<"push"<<arete.second.m_to<<endl;
+               m_edges[arete.first].m_interface->m_top_edge.set_m_color(ROUGE);
+            }
+        }
+    }
+}
+
+void Graph::deconnexe()
+{
+    for(auto elem : m_vertices)
+    {
+        m_vertices[elem.first].set_marqued(false);
+        for(auto arete : m_edges)
+        {
+            m_edges[arete.first].m_interface->m_top_edge.set_m_color(GRISSOMBRE);
+        }
+    }
+}
+void Graph::k_connexe()
+{
+//    std::vector<int>m_pile;
+//    for(auto elem: m_vertices)
+//    {
+//
+//        if(((elem.second.m_out.size()!=0) || (elem.second.m_in.size()!=0)) && (m_vertices[elem.first].m_marque==false))
+//            {
+////              std::cout<<elem.first<<std::endl;
+//                m_vertices[elem.first].m_marque = true;
+//                ///Marqué donc on surpprime ses aretes
+//                std::cout<<elem.first<<" bool "<<m_vertices[elem.first].m_marque<<std::endl;///test
+//                m_pile.push_back(elem.first);///je suis un vecteur
+//
+//            }
+//        else if(m_vertices[elem.first].m_marque==true)
+//            {
+//            std::cout<<"deja lu"<<std::endl;
+//            }
+//             }
+//     for(int i=0;i<m_pile.size();i++)
+//        {
+//            std::cout<<m_pile[i]<<" -> ";
+//
+//        }
+//        std::cout<<std::endl;
+//      std::cout<<m_pile.size()<<"-plets"<<std::endl;
+
+
+for(auto elem:m_vertices)
+{
+
+    int k=0;
+    for(auto arete: m_edges)
+    {
+        if(arete.second.m_from==elem.first || arete.second.m_to==elem.first)
+        {
+            k++;
 
         }
 
     }
+    m_vertices[elem.first].degre=k;
 
-    return bin;
+}
+int x=0;
+int v=0;
+for(auto elem:m_vertices)
+{
+    ///comparaison
+    ///iterator parcours de map si le premier egale au k
+    if(v==0)
+        x=elem.first;
+
+    if(v<elem.second.degre)
+    {
+        x=elem.first;
+        v=elem.second.degre;
+
+    }
+}
+
+///Tant qu'on n'a pas un sommet sans connexion on tourne
+///for(auto elem: m_vertices) parcours des sommets
+///{ on supprime i sommets on true un booleen }
+///i++ dans la boucle tant que
+/// Sortie de boucle while
+/// Sortie cout i-plets
+int i=0;
+//while()
+
+
 }
 
 ///Pour chaque k de 0 à ordre et tant que kmin non trouvé
@@ -987,3 +1100,4 @@ int Graph::binomial()///k_connexité
 ///Si le fait de neutraliser ces k sommet déconnecte le graphe alors
 ///kmin trouvé : kmin = k (mais on termine bien la boucle « Pour chaque k-plet... »)
 ///Enregistrer ce k-plet de sommets (pour montrer après)
+
