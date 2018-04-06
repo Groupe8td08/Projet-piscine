@@ -209,6 +209,16 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     m_temps_reel.add_child(m_temps_reel_label);
     m_temps_reel_label.set_message("Evolution");
+
+     //ajouter bouton arete
+    m_tool_box.add_child(m_arete);
+    m_arete.set_dim(73,25);
+    m_arete.set_pos(1,655);
+    m_arete.set_bg_color(ROSE);
+
+    //texte
+    m_arete.add_child(m_arete_label);
+    m_arete_label.set_message("Aretee");
 }
 
 void GraphInterface::sommet_box1()
@@ -322,8 +332,9 @@ void GraphInterface::sommet_box3()
 
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-int Graph::updatex(int fonction)
-{
+int Graph::updatex(int fonction,int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix)
+{   std::string sommet_1;
+    std::string sommet_2;
     update();
     //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
     if(m_interface->m_connexe.clicked())
@@ -391,9 +402,270 @@ int Graph::updatex(int fonction)
             m_interface->m_temps_reel.set_bg_color(VERT);
         }
     }
+    if(m_interface->m_arete.clicked())
+    {
+
+        if(fonction==0)
+        {
+            fonction=5;
+            std::cout<<"m_arete:"<<std::endl;
+            std::cout<<"Saisir les sommets a relier ex : Sommet 1 -> Sommet2"<<std::endl;
+            std::cout<<"Sommet 1:"<<std::endl;
+            std::cin>>sommet_1;
+            std::cout<<"Sommet 2:"<<std::endl;
+            std::cin>>sommet_2;
+            std::cout<<sommet_1<<" -> "<<sommet_2<<std::endl;
+
+            m_interface->m_arete.set_bg_color(BLANCROSE);
+        }
+        else if(fonction==5)
+        {
+             fonction=0;
+             std::cout<<"Arete"<<std::endl;
+             m_interface->m_arete.set_bg_color(ROSE);
+        }
+
+    }
+    if(choix>0 && choix<4)
+    {
+        if(m_interface->m_sommet0.clicked())
+        {
+            if(*a==0)
+            {
+                m_interface->m_sommet0.set_bg_color(BLANCJAUNE);
+                modi_sommet(0,0);
+                *a=2;
+            }
+            if(*a==1)
+            {
+                m_interface->m_sommet0.set_bg_color(GRIS);
+                modi_sommet(0,1);
+                *a=0;
+            }
+            if(*a==2)
+            {
+                *a=1;
+            }
+        }
+        if(m_interface->m_sommet1.clicked())
+        {
+            if(*b==0)
+            {
+                m_interface->m_sommet1.set_bg_color(BLANCJAUNE);
+                modi_sommet(1,0);
+                *b=2;
+            }
+            if(*b==1)
+            {
+                m_interface->m_sommet1.set_bg_color(GRIS);
+               // modi_sommet(1,1);
+                *b=0;
+            }
+            if(*b==2)
+            {
+                *b=1;
+            }
+        }
+        if(m_interface->m_sommet2.clicked())
+        {
+            if(*c==0)
+            {
+                m_interface->m_sommet2.set_bg_color(BLANCJAUNE);
+                modi_sommet(2,0);
+                *c=2;
+            }
+            if(*c==1)
+            {
+                m_interface->m_sommet2.set_bg_color(GRIS);
+                //modi_sommet(2,1);
+                *c=0;
+            }
+            if(*c==2)
+            {
+                *c=1;
+            }
+        }
+        if(m_interface->m_sommet3.clicked())
+        {
+            if(*d==0)
+            {
+                m_interface->m_sommet3.set_bg_color(BLANCJAUNE);
+                modi_sommet(3,0);
+                *d=2;
+            }
+            if(*d==1)
+            {
+                m_interface->m_sommet3.set_bg_color(GRIS);
+                //modi_sommet(3,1);
+                *d=0;
+            }
+            if(*d==2)
+            {
+                *d=1;
+            }
+        }
+        if(m_interface->m_sommet4.clicked())
+        {
+            if(*e==0)
+            {
+                m_interface->m_sommet4.set_bg_color(BLANCJAUNE);
+                modi_sommet(4,0);
+                *e=2;
+            }
+            if(*e==1)
+            {
+                m_interface->m_sommet3.set_bg_color(GRIS);
+               // modi_sommet(4,1);
+                *e=0;
+            }
+            if(*e==2)
+            {
+                *e=1;
+            }
+        }
+          if(m_interface->m_sommet5.clicked())
+        {
+            if(*f==0)
+            {
+                m_interface->m_sommet5.set_bg_color(BLANCJAUNE);
+                modi_sommet(5,0);
+                *f=2;
+            }
+            if(*f==1)
+            {
+                m_interface->m_sommet5.set_bg_color(GRIS);
+               // modi_sommet(5,1);
+                *f=0;
+            }
+            if(*f==2)
+            {
+                *f=1;
+            }
+        }
+        if(m_interface->m_sommet6.clicked())
+        {
+            if(*g==0)
+            {
+                m_interface->m_sommet6.set_bg_color(BLANCJAUNE);
+                modi_sommet(6,0);
+                *g=2;
+            }
+            if(*g==1)
+            {
+                m_interface->m_sommet6.set_bg_color(GRIS);
+               // modi_sommet(6,1);
+                *g=0;
+            }
+            if(*g==2)
+            {
+                *g=1;
+            }
+        }
+    }
+    if(choix>1 && choix<4)
+    {
+        if(m_interface->m_sommet7.clicked())
+        {
+            if(*h==0)
+            {
+                m_interface->m_sommet7.set_bg_color(BLANCJAUNE);
+                modi_sommet(7,0);
+                *h=2;
+            }
+            if(*h==1)
+            {
+                m_interface->m_sommet7.set_bg_color(GRIS);
+                //modi_sommet(7,1);
+                *h=0;
+            }
+            if(*h==2)
+            {
+                *h=1;
+            }
+        }
+        if(m_interface->m_sommet8.clicked())
+        {
+            if(*i==0)
+            {
+                m_interface->m_sommet8.set_bg_color(BLANCJAUNE);
+                modi_sommet(8,0);
+                *i=2;
+            }
+            if(*i==1)
+            {
+                m_interface->m_sommet8.set_bg_color(GRIS);
+                //modi_sommet(8,1);
+                *i=0;
+            }
+            if(*i==2)
+            {
+                *i=1;
+            }
+        }
+    }
+    if(choix==3)
+    {
+        if(m_interface->m_sommet9.clicked())
+        {
+            if(*j==0)
+            {
+                m_interface->m_sommet9.set_bg_color(BLANCJAUNE);
+                modi_sommet(9,0);
+                *j=2;
+            }
+            if(*j==1)
+            {
+                m_interface->m_sommet9.set_bg_color(GRIS);
+                //modi_sommet(9,1);
+                *j=0;
+            }
+            if(*j==2)
+            {
+                *j=1;
+            }
+        }
+        if(m_interface->m_sommet10.clicked())
+        {
+            if(*k==0)
+            {
+                m_interface->m_sommet10.set_bg_color(BLANCJAUNE);
+                modi_sommet(10,0);
+                *k=2;
+            }
+            if(*k==1)
+            {
+                m_interface->m_sommet10.set_bg_color(GRIS);
+                //modi_sommet(10,1);
+                *k=0;
+            }
+            if(*k==2)
+            {
+                *k=1;
+            }
+        } if(m_interface->m_sommet11.clicked())
+        {
+            if(*l==0)
+            {
+                m_interface->m_sommet11.set_bg_color(BLANCJAUNE);
+                modi_sommet(11,0);
+                *l=2;
+            }
+            if(*l==1)
+            {
+                m_interface->m_sommet11.set_bg_color(GRIS);
+                //modi_sommet(11,1);
+                *l=0;
+            }
+            if(*l==2)
+            {
+                *l=1;
+            }
+        }
+    }
     return fonction;
 
 }
+
 void Graph::update()
 {
     if (!m_interface)
@@ -610,9 +882,16 @@ void Graph::modi_sommet(int i, int aff)
 
     if(aff==1)
     {
-        add_interfaced_vertex(i, m_sommet[i].m_value,m_sommet[i].m_interface->m_top_box.get_posy(),
-                              m_sommet[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
-        add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
+        VertexInterface* vi=new VertexInterface(i,m_vertices[i].m_interface->m_top_box.get_posy(),
+                              m_vertices[i].m_interface->m_top_box.get_posy(),m_sommet[i].m_interface->m_img.get_pic_name());
+
+         // Ajout de la top box de l'interface de sommet
+        m_interface->m_main_box.add_child(vi->m_top_box);
+
+      //  add_interfaced_edge(m_arete[i].m_idx,m_arete[i].m_from,m_arete[i].m_to,m_arete[i].m_weight);
+
+
+
     }
     else
     {
@@ -663,5 +942,48 @@ void Graph::temps_reel()
         liste.erase(liste.begin(),liste.end());
     }
 }
+int Graph::factoriel (int n)
+{
+	int facto, i;
+	facto=1;
+	i=1;
 
+	while (i<=n)
+	{
+		facto=facto*i;
+		i=i+1;
+	}
+	return facto;
+}
+int Graph::binomial()///k_connexité
+{
+    int bin=0;
+    int n=m_ordre;
+    int a=0;///kmin
 
+    for(int k=0;k<n;k++)
+    {
+        bin=factoriel(n)/(factoriel(k)*factoriel(n-k));
+        a=bin;
+        std::cout<<bin<<std::endl;
+//        std::cout<<bino<<std::endl;
+    }
+//        std::cout<<bin<<std::endl; ///Calcul de Kmin, a
+    bin=0;
+   while(a<bin)
+    {
+        for(int k=0;k<n;k++)
+        {bin=factoriel(n)/factoriel(k)*factoriel(n-k);
+
+        }
+
+    }
+
+    return bin;
+}
+
+///Pour chaque k de 0 à ordre et tant que kmin non trouvé
+///Pour chaque k-plet de sommets
+///Si le fait de neutraliser ces k sommet déconnecte le graphe alors
+///kmin trouvé : kmin = k (mais on termine bien la boucle « Pour chaque k-plet... »)
+///Enregistrer ce k-plet de sommets (pour montrer après)
