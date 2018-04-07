@@ -462,10 +462,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet1.set_bg_color(BLANCJAUNE);
                 modi_sommet(1,0);
                 *b=2;
+                m_interface->m_sommet1.set_bg_color(GRIS);
             }
             if(*b==1)
             {
-                m_interface->m_sommet1.set_bg_color(GRIS);
+
                 // modi_sommet(1,1);
                 *b=0;
             }
@@ -481,10 +482,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet2.set_bg_color(BLANCJAUNE);
                 modi_sommet(2,0);
                 *c=2;
+                m_interface->m_sommet2.set_bg_color(GRIS);
             }
             if(*c==1)
             {
-                m_interface->m_sommet2.set_bg_color(GRIS);
+
                 //modi_sommet(2,1);
                 *c=0;
             }
@@ -500,10 +502,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet3.set_bg_color(BLANCJAUNE);
                 modi_sommet(3,0);
                 *d=2;
+                m_interface->m_sommet3.set_bg_color(GRIS);
             }
             if(*d==1)
             {
-                m_interface->m_sommet3.set_bg_color(GRIS);
+
                 // modi_sommet(3,1);
                 *d=0;
             }
@@ -519,10 +522,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet4.set_bg_color(BLANCJAUNE);
                 modi_sommet(4,0);
                 *e=2;
+                m_interface->m_sommet4.set_bg_color(GRIS);
             }
             if(*e==1)
             {
-                m_interface->m_sommet4.set_bg_color(GRIS);
+
                 // modi_sommet(4,1);
                 *e=0;
             }
@@ -557,10 +561,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet6.set_bg_color(BLANCJAUNE);
                 modi_sommet(6,0);
                 *g=2;
+                m_interface->m_sommet6.set_bg_color(GRIS);
             }
             if(*g==1)
             {
-                m_interface->m_sommet6.set_bg_color(GRIS);
+
                 //modi_sommet(6,1);
                 *g=0;
             }
@@ -579,10 +584,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet7.set_bg_color(BLANCJAUNE);
                 modi_sommet(7,0);
                 *h=2;
+                m_interface->m_sommet7.set_bg_color(GRIS);
             }
             if(*h==1)
             {
-                m_interface->m_sommet7.set_bg_color(GRIS);
+
                 // modi_sommet(7,1);
                 *h=0;
             }
@@ -598,10 +604,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet8.set_bg_color(BLANCJAUNE);
                 modi_sommet(8,0);
                 *i=2;
+                m_interface->m_sommet8.set_bg_color(GRIS);
             }
             if(*i==1)
             {
-                m_interface->m_sommet8.set_bg_color(GRIS);
+
                 //  modi_sommet(8,1);
                 *i=0;
             }
@@ -620,10 +627,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet9.set_bg_color(BLANCJAUNE);
                 modi_sommet(9,0);
                 *j=2;
+                m_interface->m_sommet9.set_bg_color(GRIS);
             }
             if(*j==1)
             {
-                m_interface->m_sommet9.set_bg_color(GRIS);
+
                 // modi_sommet(9,1);
                 *j=0;
             }
@@ -639,10 +647,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet10.set_bg_color(BLANCJAUNE);
                 modi_sommet(10,0);
                 *k=2;
+                m_interface->m_sommet10.set_bg_color(GRIS);
             }
             if(*k==1)
             {
-                m_interface->m_sommet10.set_bg_color(GRIS);
+
                 // modi_sommet(10,1);
                 *k=0;
             }
@@ -658,10 +667,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet11.set_bg_color(BLANCJAUNE);
                 modi_sommet(11,0);
                 *l=2;
+                m_interface->m_sommet11.set_bg_color(GRIS);
             }
             if(*l==1)
             {
-                m_interface->m_sommet11.set_bg_color(GRIS);
+
                 //modi_sommet(11,1);
                 *l=0;
             }
