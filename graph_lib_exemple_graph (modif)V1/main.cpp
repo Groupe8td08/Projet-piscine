@@ -22,8 +22,11 @@ int main()
     Graph g2;
     Graph g3;
     g1.make_example("graphe1.txt");
+    g1.load_bis("sommet1.txt");
     g2.make_example("graphe2.txt");
+    g2.load_bis("sommet2.txt");
     g3.make_example("graphe3.txt");
+    g3.load_bis("sommet3.txt");
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
@@ -70,6 +73,15 @@ int main()
 
         if(mouse_y<35 && mouse_x<103 && mouse_x>25 && mouse_b&1)
         {
+            /*
+            if(choix==1)
+                g1.save_bis("sommet1.txt");
+            if(choix==2)
+                g2.save_bis("sommet2.txt");
+            if(choix==3)
+                g3.save_bis("sommet3.txt");*/
+
+
             choix=0;
         }
         grman::mettre_a_jour(fonction);
