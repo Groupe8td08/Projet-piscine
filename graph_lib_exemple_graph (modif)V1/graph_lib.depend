@@ -263,7 +263,7 @@
 	<algorithm>
 	<allegro.h>
 
-1523112374 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\graph.h
+1523184394 c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\graph.h
 	<vector>
 	<map>
 	<string>
@@ -272,7 +272,7 @@
 	<stack>
 	"grman/grman.h"
 
-1523112162 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\graph.cpp
+1523192685 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\graph.cpp
 	"graph.h"
 
 1523054562 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\grman\coords.cpp
@@ -295,69 +295,6 @@
 1523054562 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\grman\widget.cpp
 	"widget.h"
 
-1523109396 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\main.cpp
-	"ajout.h"
-
-1523112707 source:c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\ajout.cpp
-	"ajout.h"
-
-1523112707 c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\ajout.h
-	"grman/grman.h"
-	<iostream>
-	"graph.h"
-
-1523112707 c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\grman.h
-	<allegro.h>
-	<string>
-	"grman_couleurs.h"
-	"coords.h"
-	"widget.h"
-
-1523112707 c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\grman_couleurs.h
-
-1523112707 c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\coords.h
-	<cmath>
-
-1523112707 c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\widget.h
-	"grman.h"
-	<iostream>
-	<string>
-	<vector>
-	<algorithm>
-	<allegro.h>
-
-1523112707 c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\graph.h
-	<vector>
-	<map>
-	<string>
-	<memory>
-	<fstream>
-	<stack>
-	"grman/grman.h"
-
-1523113041 source:c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\graph.cpp
-	"graph.h"
-
-1523112707 source:c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\coords.cpp
-	"coords.h"
-
-1523112707 source:c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\grman.cpp
-	<cmath>
-	<unordered_map>
-	<unordered_set>
-	<utility>
-	<string>
-	<iostream>
-	<regex>
-	"grman.h"
-	<allegro.h>
-	<png.h>
-	<loadpng.h>
-	<jpgalleg.h>
-
-1523112707 source:c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\grman\widget.cpp
-	"widget.h"
-
-1523112707 source:c:\users\jerome\documents\ece cours\ing2\informatique\projet-piscine\graph_lib_exemple_graph (modif)v1\main.cpp
+1523184184 source:c:\users\antoine\desktop\projet info s2\graph_lib_exemple_graph (modif)v1\main.cpp
 	"ajout.h"
 

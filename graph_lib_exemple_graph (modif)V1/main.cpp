@@ -18,6 +18,9 @@ int main()
 
     pagina=load_bitmap("pics\\accueil.bmp",NULL);
 
+
+    ///Notre application comporte 3 graphes dont les données sont dans graphe1,2,3
+    ///Dans sommet1,2,3.txt, il y a les noms des sommets qui peuvent etre ajoutés à chaque graphe
     Graph g1;
     Graph g2;
     Graph g3;
@@ -73,15 +76,6 @@ int main()
 
         if(mouse_y<35 && mouse_x<103 && mouse_x>25 && mouse_b&1)
         {
-            /*
-            if(choix==1)
-                g1.save_bis("sommet1.txt");
-            if(choix==2)
-                g2.save_bis("sommet2.txt");
-            if(choix==3)
-                g3.save_bis("sommet3.txt");*/
-
-
             choix=0;
         }
         grman::mettre_a_jour(fonction);

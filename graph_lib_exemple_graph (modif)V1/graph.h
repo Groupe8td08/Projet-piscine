@@ -134,8 +134,6 @@ class Vertex
     friend class EdgeInterface;
 
     private :
-
-
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         double m_value;
         double m_coef_r=1.0000001;
@@ -151,12 +149,8 @@ class Vertex
         // VertexInterface * m_interface = nullptr;
 
     public:
-        int m_idx;
-        int m_x;
-        int m_y;
-        std::string nom;
 
-                /// liste des indices des arcs arrivant au sommet : accès aux prédécesseurs
+        /// liste des indices des arcs arrivant au sommet : accès aux prédécesseurs
         std::vector<int> m_in;
 
         /// liste des indices des arcs partant du sommet : accès aux successeurs
@@ -352,21 +346,20 @@ class Graph
 
 
     private :
+        ///On stock l'ordre du graphe
         int m_ordre;
-        int m_degre;
-        /// La "liste" des arêtes
-        std::map<int, Edge> m_edges;
-        std::map<int, Edge> m_arete;
+        ///Taille de la matrice d'adjacence
+        int m_buff;
 
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
-        std::map<int, Vertex> m_sommet;
+        std::map<int, Edge> m_edges;
 
         std::vector<int> m_pile;
+        std::vector<std::string> m_som;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
-
 
     public:
 
@@ -375,25 +368,27 @@ class Graph
         Graph (GraphInterface *interface=nullptr) :
             m_interface(interface)  {  }
 
-        void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
+        void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0,int charg=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
-        /// Méthode spéciale qui construit un graphe arbitraire (démo)
-        /// Voir implémentation dans le .cpp
-        /// Cette méthode est à enlever et remplacer par un système
-        /// de chargement de fichiers par exemple.
+        ///On load les fichiers dans make_exemple
         void make_example(std::string nom);
+        ///Alloue la matrice d'adjacence
         int** init(int** m_matrice);
+        ///On charge les données du fichier du graphe
         void load(std::string nom_fichier);
+        ///Sauvegarde du graphe
         void save(std::string nom_fichier);
+        ///Methode qui efface un sommet et ses aretes
         void modi_sommet(int i, int aff);
-        void test_remove_edge(int eidx, int a);
+        ///On vide les m_in et m_out (methode donnée par M Fercoq
+        void test_remove_edge(int eidx);
+        ///Ajout d'arete
         void add_edges();
+        ///Ajout d'un sommet
         void add_vertice();
-
+        ///Chargement du fichier qui contient les sommets qui peuvent etre ajoutés.
         void load_bis(std::string sommet1);
-        void save_bis(std::string sommet);
-
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();

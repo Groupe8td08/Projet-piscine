@@ -62,8 +62,6 @@ void Vertex::pre_update()
 
     /// Copier la valeur locale de la donnée m_value vers le slider associé
     m_interface->m_slider_value.set_value(m_value);
-//   m_interface->m_top_box.set_posx(m_x);
-    // m_interface->m_top_box.set_posx(m_y);
 
     /// Copier la valeur locale de la donnée m_value vers le label sous le slider
     m_interface->m_label_value.set_message( std::to_string( (int)m_value) );
@@ -78,8 +76,7 @@ void Vertex::post_update()
 
     /// Reprendre la valeur du slider dans la donnée m_value locale
     m_value = m_interface->m_slider_value.get_value();
-    // m_x= m_interface->m_top_box.get_posx();
-    //m_y= m_interface->m_top_box.get_posy();
+
 
 }
 
@@ -347,7 +344,6 @@ void GraphInterface::sommet_box3()
 int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *g,int *h,int *i,int *j,int *k,int *l, int choix)
 {
     update();
-    //cout<< m_vertices[0].m_interface->m_top_box.get_posx()<<" "<<m_vertices[0].m_interface->m_top_box.get_posy()<<endl;
     if(m_interface->m_connexe.clicked())
     {
 
@@ -379,7 +375,6 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
     }
     if(m_interface->m_k_connexe.clicked())
     {
-
         if(fonction==0)
         {
             fonction=2;
@@ -406,11 +401,9 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             if(choix==3)
                 dek_connexe();
         }
-
     }
     if(m_interface->m_temps_reel.clicked())
     {
-
         if(fonction==0)
         {
             fonction=4;
@@ -447,7 +440,6 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
             }
             if(*a==1)
             {
-                //modi_sommet(0,1);
                 *a=0;
             }
             if(*a==2)
@@ -462,12 +454,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet1.set_bg_color(BLANCJAUNE);
                 modi_sommet(1,0);
                 *b=2;
-                m_interface->m_sommet1.set_bg_color(GRIS);
+                 m_interface->m_sommet1.set_bg_color(GRIS);
             }
             if(*b==1)
             {
-
-                // modi_sommet(1,1);
                 *b=0;
             }
             if(*b==2)
@@ -482,12 +472,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet2.set_bg_color(BLANCJAUNE);
                 modi_sommet(2,0);
                 *c=2;
-                m_interface->m_sommet2.set_bg_color(GRIS);
+                 m_interface->m_sommet2.set_bg_color(GRIS);
             }
             if(*c==1)
             {
-
-                //modi_sommet(2,1);
                 *c=0;
             }
             if(*c==2)
@@ -502,12 +490,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet3.set_bg_color(BLANCJAUNE);
                 modi_sommet(3,0);
                 *d=2;
-                m_interface->m_sommet3.set_bg_color(GRIS);
+                 m_interface->m_sommet3.set_bg_color(GRIS);
             }
             if(*d==1)
             {
-
-                // modi_sommet(3,1);
                 *d=0;
             }
             if(*d==2)
@@ -522,12 +508,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet4.set_bg_color(BLANCJAUNE);
                 modi_sommet(4,0);
                 *e=2;
-                m_interface->m_sommet4.set_bg_color(GRIS);
+                 m_interface->m_sommet4.set_bg_color(GRIS);
             }
             if(*e==1)
             {
-
-                // modi_sommet(4,1);
                 *e=0;
             }
             if(*e==2)
@@ -542,11 +526,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet5.set_bg_color(BLANCJAUNE);
                 modi_sommet(5,0);
                 *f=2;
+                 m_interface->m_sommet5.set_bg_color(GRIS);
             }
             if(*f==1)
             {
-                m_interface->m_sommet5.set_bg_color(GRIS);
-                // modi_sommet(5,1);
                 *f=0;
             }
             if(*f==2)
@@ -561,12 +544,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet6.set_bg_color(BLANCJAUNE);
                 modi_sommet(6,0);
                 *g=2;
-                m_interface->m_sommet6.set_bg_color(GRIS);
+                 m_interface->m_sommet6.set_bg_color(GRIS);
             }
             if(*g==1)
             {
-
-                //modi_sommet(6,1);
                 *g=0;
             }
             if(*g==2)
@@ -584,12 +565,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet7.set_bg_color(BLANCJAUNE);
                 modi_sommet(7,0);
                 *h=2;
-                m_interface->m_sommet7.set_bg_color(GRIS);
+                 m_interface->m_sommet7.set_bg_color(GRIS);
             }
             if(*h==1)
             {
-
-                // modi_sommet(7,1);
                 *h=0;
             }
             if(*h==2)
@@ -604,12 +583,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet8.set_bg_color(BLANCJAUNE);
                 modi_sommet(8,0);
                 *i=2;
-                m_interface->m_sommet8.set_bg_color(GRIS);
+                 m_interface->m_sommet8.set_bg_color(GRIS);
             }
             if(*i==1)
             {
-
-                //  modi_sommet(8,1);
                 *i=0;
             }
             if(*i==2)
@@ -627,12 +604,11 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet9.set_bg_color(BLANCJAUNE);
                 modi_sommet(9,0);
                 *j=2;
-                m_interface->m_sommet9.set_bg_color(GRIS);
+                 m_interface->m_sommet9.set_bg_color(GRIS);
             }
             if(*j==1)
             {
 
-                // modi_sommet(9,1);
                 *j=0;
             }
             if(*j==2)
@@ -647,12 +623,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet10.set_bg_color(BLANCJAUNE);
                 modi_sommet(10,0);
                 *k=2;
-                m_interface->m_sommet10.set_bg_color(GRIS);
+                 m_interface->m_sommet10.set_bg_color(GRIS);
             }
             if(*k==1)
             {
-
-                // modi_sommet(10,1);
                 *k=0;
             }
             if(*k==2)
@@ -667,12 +641,10 @@ int Graph::updatex(int fonction, int *a,int *b,int *c,int *d,int *e,int *f,int *
                 m_interface->m_sommet11.set_bg_color(BLANCJAUNE);
                 modi_sommet(11,0);
                 *l=2;
-                m_interface->m_sommet11.set_bg_color(GRIS);
+                 m_interface->m_sommet11.set_bg_color(GRIS);
             }
             if(*l==1)
             {
-
-                //modi_sommet(11,1);
                 *l=0;
             }
             if(*l==2)
@@ -710,12 +682,14 @@ void Graph::update()
 }
 
 /// Aide à l'ajout de sommets interfacés
-void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name, int pic_idx )
+void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name, int pic_idx, int charg )
 {
-    if ( m_vertices.find(idx)!=m_vertices.end() )
+    if(charg!=1)
     {
-        std::cerr << "Error adding vertex at idx=" << idx << " already used..." << std::endl;
-        throw "Error adding vertex";
+        while(m_vertices.find(idx)!=m_vertices.end())
+        {
+            idx++;
+        }
     }
     // Création d'une interface de sommet
     VertexInterface *vi = new VertexInterface(idx, x, y, pic_name, pic_idx);
@@ -723,17 +697,15 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
     m_interface->m_main_box.add_child(vi->m_top_box);
     // On peut ajouter directement des vertices dans la map avec la notation crochet :
     m_vertices[idx] = Vertex(value, vi);
-    m_vertices[idx].m_idx=idx;
-
-    m_vertices[idx].m_x=x;
-    m_vertices[idx].m_y=y;
-    m_vertices[idx].m_value=value;
-    m_vertices[idx].nom=pic_name;
 }
 
 /// Aide à l'ajout d'arcs interfacés
 void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weight)
 {
+    while(m_edges.find(idx)!=m_edges.end())
+    {
+        idx++;
+    }
     if ( m_edges.find(idx)!=m_edges.end() )
     {
         std::cerr << "Error adding edge at idx=" << idx << " already used..." << std::endl;
@@ -745,12 +717,10 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         std::cerr << "Error adding edge idx=" << idx << " between vertices " << id_vert1 << " and " << id_vert2 << " not in m_vertices" << std::endl;
         throw "Error adding edge";
     }
-    m_edges[idx].m_idx=idx;
 
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
-    //init from et to avec vert1 et 2
 
     m_edges[idx].m_from=id_vert1;
     m_edges[idx].m_to=id_vert2;
@@ -759,11 +729,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_vertices[id_vert2].m_in.push_back(id_vert1);
 }
 
-/// Méthode spéciale qui construit un graphe arbitraire (démo)
-/// Cette méthode est à enlever et remplacer par un système
-/// de chargement de fichiers par exemple.
-/// Bien sûr on ne veut pas que vos graphes soient construits
-/// "à la main" dans le code comme ça.
+///Chargement des fichiers
 void Graph::make_example(std::string fichier)
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
@@ -787,15 +753,14 @@ void Graph::make_example(std::string fichier)
         m_interface->sommet_box2();
         m_interface->sommet_box3();
     }
-
 }
 
 int** Graph::init(int** m_matrice)
 {
-    m_matrice= new int* [m_ordre];
-    for(int i=0; i<m_ordre; i++)
+    m_matrice=new int* [m_buff];
+    for(int i=0; i<m_buff; i++)
     {
-        m_matrice[i]= new int [m_ordre];
+        m_matrice[i]=new int [m_buff];
     }
     return m_matrice;
 }
@@ -803,32 +768,34 @@ int** Graph::init(int** m_matrice)
 void Graph::load(string nom_fichier)
 {
     int* temp1=nullptr;
-    int**matrice;
+    int**matrice=nullptr;
     int x, y, cpt=0;
     double poid_s;
     string nom_image;
     ifstream fichier(nom_fichier, ios::in);
     if(fichier)
     {
-        fichier>>m_ordre>>m_degre;
-        m_degre=0;
-        temp1=new int [m_ordre];
+        fichier>>m_ordre>>m_buff;
+        temp1=new int [m_buff];
         for(int i=0; i<m_ordre; i++)
         {
             fichier>>temp1[i]>>poid_s>>x>>y>>nom_image;
-            add_interfaced_vertex(temp1[i],poid_s,x,y,nom_image);
+            add_interfaced_vertex(temp1[i],poid_s,x,y,nom_image,0,1);
         }
         matrice=init(matrice);
-        for(int i=0; i<m_ordre; i++)
+        for(int i=0; i<m_buff; i++)
         {
-            for(int j=0; j<m_ordre; j++)
+            temp1[i]=i;
+        }
+        for(int i=0; i<m_buff; i++)
+        {
+            for(int j=0; j<m_buff; j++)
             {
                 fichier>>matrice[i][j];
                 if(matrice[i][j]!=0)
                 {
                     add_interfaced_edge(cpt,temp1[i],temp1[j],matrice[i][j]);
                     cpt++;
-                    m_degre++;
                 }
             }
         }
@@ -838,71 +805,64 @@ void Graph::load(string nom_fichier)
 
 void Graph::save(string nom_fichier)
 {
-    int g=0;
     int**matrice=nullptr;
-    matrice=init(matrice);
-    for(int i=0; i<m_ordre; i++)
+    for(auto elem:m_vertices)
     {
-        for(int j=0; j<m_ordre; j++)
+        m_buff=elem.first;
+    }
+    m_buff++;
+    // cout<<"m_buff= "<<m_buff<<endl;
+    matrice=init(matrice);
+    for(int i=0; i<m_buff; i++)
+    {
+        for(int j=0; j<m_buff; j++)
         {
             matrice[i][j]=0;
         }
     }
+    /* cout<<"Sommets sauvegardes:"<<endl;
+     for(auto elem:m_vertices)
+     {
+         cout<<elem.first<<" ";
+         cout<<elem.second.m_value<<" ";
+         cout<<elem.second.m_interface->m_top_box.get_posx()<<" ";
+         cout<<elem.second.m_interface->m_top_box.get_posy()<<" ";
+         cout<<elem.second.m_interface->m_img.get_pic_name()<<" ";
+         cout<<endl;
+     }*/
+    //cout<<"Aretes sauvegardees:"<<endl;
+    for(auto& elem:m_edges)
+    {
+        //cout<<elem.second.m_from<<" "<<elem.second.m_to<<" "<<elem.second.m_weight<<endl;
+        if(elem.second.m_weight==0)
+        {
+            elem.second.m_weight++;
+        }
+        matrice[elem.second.m_from][elem.second.m_to]=elem.second.m_weight;
+    }
+    /*cout<<"Matrice sauvegardee: "<<endl;
+    for(int i=0; i<m_buff; i++)
+    {
+        for(int j=0; j<m_buff; j++)
+        {
+            cout<<matrice[i][j]<<" ";
+        }
+        cout<<"\n";
+    }*/
 
     ofstream fichier(nom_fichier,ios::out | ios::trunc);
     if(fichier)
     {
-        fichier<<m_ordre<<" "<<m_degre<<"\n";
-        for(int i=0; i<m_ordre; i++)
+        fichier<<m_ordre<<" "<<m_buff<<"\n";
+        for(auto elem:m_vertices)
         {
-//            cout<<"coucou"<<" "<<elem.first<<endl;
-            fichier<<i<<" "<<m_vertices[i].m_value<<" "<<m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<
-                   m_vertices[i].m_interface->m_top_box.get_posy()
-                   <<" "<<m_vertices[i].m_interface->m_img.get_pic_name();
-            fichier<<"\n";
+            fichier<<elem.first<<" "<<elem.second.m_value<<" "<<elem.second.m_interface->m_top_box.get_posx()<<" "
+                   <<elem.second.m_interface->m_top_box.get_posy()<<" "<<elem.second.m_interface->m_img.get_pic_name()<<"\n";
         }
 
-        /*for(auto elem:m_vertices)
+        for(int i=0; i<m_buff; i++)
         {
-            cout<<"coucou"<<" "<<elem.first<<endl;
-
-                fichier<<elem.first<<" ";
-                fichier<<elem.second.m_value<<" ";
-                fichier<<elem.second.m_interface->m_top_box.get_posx()<<" ";
-                fichier<<elem.second.m_interface->m_top_box.get_posy()<<" ";
-                fichier<<elem.second.m_interface->m_img.get_pic_name()<<" ";
-
-
-        }*/
-
-
-        while(g<m_degre)
-        {
-            cout<<m_edges[g].m_weight<<endl;
-            if(m_edges[g].m_weight==0)
-            {
-                m_edges[g].m_weight++;
-                // matrice[m_edges[g].m_from][m_edges[g].m_to]=m_edges[g].m_weight;
-            }
-            cout<<m_edges[g].m_weight<<endl;
-            matrice[m_edges[g].m_from][m_edges[g].m_to]=m_edges[g].m_weight;
-
-            g++;
-        }
-        /*
-        for(auto elem:m_edges)
-        {
-            cout<<"salut"<<" "<<elem.first<<endl;
-            if(elem.second.m_weight==0)
-            {
-                m_edges[elem.first].m_weight++;
-            }
-            matrice[m_edges[elem.first].m_from][m_edges[elem.first].m_to]=elem.second.m_weight;
-        }*/
-
-        for(int i=0; i<m_ordre; i++)
-        {
-            for(int j=0; j<m_ordre; j++)
+            for(int j=0; j<m_buff; j++)
             {
                 fichier<<matrice[i][j]<<" ";
             }
@@ -910,37 +870,16 @@ void Graph::save(string nom_fichier)
         }
         fichier.close();
     }
-
 }
 
-void Graph::test_remove_edge(int eidx, int a)
+void Graph::test_remove_edge(int eidx)
 {
-    /// r�f�rence vers le Edge � en
     Edge &remed=m_edges.at(eidx);
 
-
-    /// Il reste encore � virer l'arc supprim� de la liste des entrants et sortants des 2 sommets to et fro
-    /// References sur les listes de edges des sommets from et to
-    /* std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
-     std::vector<int> &veto = m_vertices[remed.m_to].m_in;
-     vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
-     veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );*/
-
-    if(a==1)
-    {
-        std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
-        vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
-    }
-    if(a==2)
-    {
-        std::vector<int> &veto = m_vertices[remed.m_to].m_in;
-        veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
-    }
-
-    /// Le Edge ne n�cessite pas non plus de delete car on n'a pas fait de new (s�mantique par vale
-    /// Il suffit donc de supprimer l'entr�e de la map pour supprimer � la fois l'Edge et le EdgeInterf
-    /// mais malheureusement ceci n'enlevait pas automatiquement l'interface top_edge en tant que child de main_box !
-    //m_edges.erase( eidx );
+    std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
+    vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
+    std::vector<int> &veto = m_vertices[remed.m_to].m_in;
+    veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
 
 }
 
@@ -957,7 +896,7 @@ void Graph::modi_sommet(int i, int aff)
     }
     if(aff==0)
     {
-        for(unsigned int j=0; j<=maxi; j++)
+        for(int j=0; j<=maxi; j++)
         {
             ad=false;
             for(auto elem: m_edges)
@@ -971,79 +910,21 @@ void Graph::modi_sommet(int i, int aff)
             {
                 if(i==m_edges[j].m_to)
                 {
-                    m_arete[j]=m_edges.at(j);
                     m_interface->m_main_box.remove_child(m_edges[j].m_interface->m_top_edge);
-                    test_remove_edge(j,2);
+                    test_remove_edge(j);
                     m_edges.erase(j);
-                    m_degre--;
                 }
                 else if(i==m_edges[j].m_from)
                 {
-                    m_arete[j]=m_edges.at(j);
                     m_interface->m_main_box.remove_child(m_edges[j].m_interface->m_top_edge);
-                    test_remove_edge(j,1);
+                    test_remove_edge(j);
                     m_edges.erase(j);
-                    m_degre--;
                 }
             }
-
-
         }
-        cout<<m_edges.size()<<endl;
         m_interface->m_main_box.remove_child(m_vertices[i].m_interface->m_top_box);
-        m_sommet[i]=m_vertices.at(i);
         m_vertices.erase(i);
         m_ordre--;
-    }
-
-    if(aff==1)
-    {
-        m_vertices[i] = m_sommet[i];
-        m_interface->m_main_box.add_child(m_vertices[i].m_interface->m_top_box);
-        m_ordre++;
-    }
-}
-
-
-void Graph::load_bis(string sommet1)
-{
-    int x,y,nom_image;
-    int* temp1=nullptr;
-    int ordre;
-    double poid_s;
-    ifstream fichier(sommet1, ios::in);
-    if(fichier)
-    {
-        fichier>>ordre;
-        temp1=new int [ordre];
-        for(int i=0; i<ordre; i++)
-        {
-            fichier>>temp1[i]>>poid_s>>x>>y>>nom_image;
-            m_sommet[temp1[i]].m_idx=temp1[i];
-            m_sommet[temp1[i]].m_value=poid_s;
-            m_sommet[temp1[i]].m_x=x;
-            m_sommet[temp1[i]].m_y=y;
-            m_sommet[temp1[i]].nom=nom_image;
-        }
-    }
-}
-
-void Graph::save_bis(string sommet)
-{
-
-    ofstream fichier(sommet,ios::out | ios::trunc);
-    if(fichier)
-    {
-        fichier<<m_sommet.size()<<"\n";
-
-        for(auto elem:m_sommet)
-        {
-            fichier<<elem.first<<" ";
-            fichier<<elem.second.m_value<<" ";
-            fichier<<elem.second.m_interface->m_top_box.get_posx()<<" ";
-            fichier<<elem.second.m_interface->m_top_box.get_posy()<<" ";
-            fichier<<elem.second.m_interface->m_img.get_pic_name()<<" ";
-        }
     }
 }
 
@@ -1055,25 +936,69 @@ void Graph::add_edges()
     cin>>dep;
     cout<<"Entrez le sommet d'arrive de l'arete:"<<endl;
     cin>>arr;
+    for(auto elem:m_edges)
+    {
+        if((elem.second.m_to==arr&&elem.second.m_from==dep)||(elem.second.m_to==dep&&elem.second.m_from==arr))
+        {
+            cout<<"Une arete existe deja entre ces deux sommets, recommencez"<<endl;
+            add_edges();
+        }
+    }
     cout<<"Par defaut, le poids de l'arete est initialise a zero"<<endl;
-
-    m_degre++;
-    add_interfaced_edge(m_degre,dep, arr,0);
+    add_interfaced_edge(0,dep, arr,0);
 }
 
 void Graph::add_vertice()
 {
-    string nom;
-    cout<<"Entrez le nom du sommet que vous voulez ajouter:"<<endl;
-    cin>>nom;
-    for(auto elem: m_sommet)
+    if(m_som.size()==m_vertices.size())
     {
-        if(elem.second.m_interface->m_img.get_pic_name()==nom)
+        cout<<"Vous ne pouvez pas ajouter de sommet"<<endl;
+    }
+    else
+    {
+        string nom;
+        string nom_final;
+        cout<<"Voici la liste des sommets qui peuvent etre ajoute au graphe"<<endl;
+        for(unsigned int i=0; i<m_som.size(); i++)
         {
-            m_vertices[elem.second.m_idx] = m_sommet[elem.second.m_idx];
-            m_interface->m_main_box.add_child(m_vertices[elem.second.m_idx].m_interface->m_top_box);
-            m_ordre++;
+            cout<<m_som[i]<<endl;
         }
+        cout<<"Entrez le nom du sommet que vous voulez ajouter:"<<endl;
+        cin>>nom;
+        for(auto elem: m_vertices)
+        {
+            if(elem.second.m_interface->m_img.get_pic_name()==nom)
+            {
+                cout<<"Ce sommet est deja dans le graphe, choisissez en un autre"<<endl;
+                add_vertice();
+            }
+        }
+        for(unsigned int i=0; i<m_som.size(); i++)
+        {
+            if(m_som[i]==nom)
+            {
+                nom_final+=nom;
+                add_interfaced_vertex(0,50,400,400,nom_final,0,2);
+                m_ordre++;
+            }
+        }
+    }
+}
+
+void Graph::load_bis(string sommet1)
+{
+    string name;
+    int ordre;
+    ifstream fichier(sommet1, ios::in);
+    if(fichier)
+    {
+        fichier>>ordre;
+        for(int i=0; i<ordre; i++)
+        {
+            fichier>>name;
+            m_som.push_back(name);
+        }
+        fichier.close();
     }
 }
 

@@ -1,4 +1,4 @@
-9 16
+9 9
 0 77.1429 45 51 plante.jpg
 1 25.7143 375 10 triceratops.jpg
 2 18.5714 560 67 hadrausorus.jpg
